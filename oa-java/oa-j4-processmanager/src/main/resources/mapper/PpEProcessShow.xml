@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.procmanager.mapper.PpEProcessShowAndModifyMapper">
+
+
+    <update id="update">
+        update pp_e_process
+        <set>
+            <if test="xsequence != null">
+                xsequence=#{xsequence},
+            </if>
+<!--            <if test="xcreateTime != null">-->
+<!--                xcreateTime=#{xcreateTime},-->
+<!--            </if>-->
+<!--            <if test="xupdateTime != null">-->
+<!--                xupdateTime=#{xupdateTime},-->
+<!--            </if>-->
+            <if test="xdistributeFactor != null">
+                xdistributeFactor=#{xdistributeFactor},
+            </if>
+            <if test="xafterArriveScript != null">
+                xafterArriveScript=#{xafterArriveScript},
+            </if>
+            <if test="xafterArriveScriptText != null">
+                xafterArriveScriptText=#{xafterArriveScriptText},
+            </if>
+            <if test="xafterBeginScript != null">
+                xafterBeginScript=#{xafterBeginScript},
+            </if>
+            <if test="xafterBeginScriptText != null">
+                xafterBeginScriptText=#{xafterBeginScriptText},
+            </if>
+            <if test="xafterEndScript != null">
+                xafterEndScript=#{xafterEndScript},
+            </if>
+            <if test="xafterEndScriptText != null">
+                xafterEndScriptText=#{xafterEndScriptText},
+            </if>
+            <if test="xafterExecuteScript != null">
+                xafterExecuteScript=#{xafterExecuteScript},
+            </if>
+            <if test="xafterExecuteScriptText != null">
+                xafterExecuteScriptText=#{xafterExecuteScriptText},
+            </if>
+            <if test="xafterInquireScript != null">
+                xafterInquireScript=#{xafterInquireScript},
+            </if>
+            <if test="xafterInquireScriptText != null">
+                xafterInquireScriptText=#{xafterInquireScriptText},
+            </if>
+            <if test="xalias != null">
+                xalias=#{xalias},
+            </if>
+            <if test="xapplication != null">
+                xapplication=#{xapplication},
+            </if>
+            <if test="xbeforeArriveScript != null">
+                xbeforeArriveScript=#{xbeforeArriveScript},
+            </if>
+            <if test="xbeforeArriveScriptText != null">
+                xbeforeArriveScriptText=#{xbeforeArriveScriptText},
+            </if>
+            <if test="xbeforeExecuteScript != null">
+                xbeforeExecuteScript=#{xbeforeExecuteScript},
+            </if>
+            <if test="xbeforeExecuteScriptText != null">
+                xbeforeExecuteScriptText=#{xbeforeExecuteScriptText},
+            </if>
+            <if test="xbeforeInquireScript != null">
+                xbeforeInquireScript=#{xbeforeInquireScript},
+            </if>
+            <if test="xbeforeInquireScriptText != null">
+                xbeforeInquireScriptText=#{xbeforeInquireScriptText},
+            </if>
+            <if test="xcategory != null">
+                xcategory=#{xcategory},
+            </if>
+            <if test="xcheckDraft != null">
+                xcheckDraft=#{xcheckDraft},
+            </if>
+            <if test="xcreatorPerson != null">
+                xcreatorPerson=#{xcreatorPerson},
+            </if>
+            <if test="xdefaultStartMode != null">
+                xdefaultStartMode=#{xdefaultStartMode},
+            </if>
+
+            <if test="xdescription != null">
+                xdescription=#{xdescription},
+            </if>
+            <if test="xedition != null">
+                xedition=#{xedition},
+            </if>
+            <if test="xeditionDes != null">
+                xeditionDes=#{xeditionDes},
+            </if>
+            <if test="xeditionEnable != null">
+                xeditionEnable=#{xeditionEnable},
+            </if>
+            <if test="xeditionName != null">
+                xeditionName=#{xeditionName},
+            </if>
+            <if test="xeditionNumber != null">
+                xeditionNumber=#{xeditionNumber},
+            </if>
+
+
+            <if test="xicon != null">
+                xicon=#{xicon},
+            </if>
+            <if test="xlastUpdatePerson != null">
+                xlastUpdatePerson=#{xlastUpdatePerson},
+            </if>
+<!--            <if test="xlastUpdateTime != null">-->
+<!--                xlastUpdateTime=#{xlastUpdateTime},-->
+<!--            </if>-->
+            <if test="xname != null">
+                xname=#{xname},
+            </if>
+            <if test="xprojection != null">
+                xprojection=#{xprojection},
+            </if>
+            <if test="xprojectionFully != null">
+                xprojectionFully=#{xprojectionFully},
+            </if>
+            <if test="xproperties != null">
+                xproperties=#{xproperties},
+            </if>
+            <if test="xrouteNameAsOpinion != null">
+                xrouteNameAsOpinion=#{xrouteNameAsOpinion},
+            </if>
+            <if test="xserialActivity != null">
+                xserialActivity=#{xserialActivity},
+            </if>
+            <if test="xserialPhase != null">
+                xserialPhase=#{xserialPhase},
+            </if>
+            <if test="xserialTexture != null">
+                xserialTexture=#{xserialTexture},
+            </if>
+            <if test="xstartableTerminal != null">
+                xstartableTerminal=#{xstartableTerminal},
+            </if>
+        </set>
+        where xid = #{xid}
+    </update>
+<!--    <if test="xexpireDay != null">-->
+<!--        xexpireDay=#{xexpireDay},-->
+<!--    </if>-->
+<!--    <if test="xexpireHour != null">-->
+<!--        xexpireHour=#{xexpireHour},-->
+<!--    </if>-->
+<!--    <if test="xexpireType != null">-->
+<!--        xexpireType=#{xexpireType},-->
+<!--    </if>-->
+<!--    <if test="xexpireWorkTime != null">-->
+<!--        xexpireWorkTime=#{xexpireWorkTime},-->
+<!--    </if>-->
+</mapper>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zeroone.star.oaj2msgnotification.mapper.MessageMapper">
+
+    <select id="findUnreadMessages" parameterType="com.zeroone.star.project.query.j2.message.notification.MessageQuery" resultType="com.zeroone.star.project.vo.j2.message.notification.MessageVO">
+        SELECT
+        xid,
+        xcreateTime,
+        xsequence,
+        xupdateTime,
+        xdistributeFactor,
+        xbody,
+        xconsumed,
+        xconsumer,
+        xinstant,
+        xperson,
+        xproperties,
+        xtitle,
+        xtype
+        FROM msg_message
+        <where>
+        <if test="query.xperson != null and query.xperson != ''">
+            AND xperson = #{query.xperson}
+        </if>
+        <!-- 根据需要添加其他查询条件 -->
+        </where>
+    </select>
+
+    <delete id="deleteMessage" parameterType="string">
+        DELETE FROM msg_message WHERE xid = #{xid}
+    </delete>
+
+</mapper>

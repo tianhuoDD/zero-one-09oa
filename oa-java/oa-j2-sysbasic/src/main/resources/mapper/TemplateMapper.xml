@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zeroone.star.oaj2sysbasic.mapper.TemplateMapper">
+    <update id="updateformTemplate" parameterType="com.zeroone.star.oaj2sysbasic.entity.FormTemplate">
+        update qry_import_model
+        <set>
+            <if test="xdata != null">
+                xdata = #{xdata},
+            </if>
+            <if test="xdescription != null">
+                xdescription = #{xdescription},
+            </if>
+            <if test="xname != null">
+                xname = #{xname},
+            </if>
+            <if test="xupdateTime != null">
+                xupdateTime = #{xupdateTime},
+            </if>
+            <if test="xtype != null">
+                xtype = #{xtype},
+            </if>
+            <if test="xdisplay != null">
+                xdisplay = #{xdisplay},
+            </if>
+            <if test="xalias != null">
+                xalias = #{xalias},
+            </if>
+        </set>
+        where xid = #{xid}
+    </update>
+</mapper>

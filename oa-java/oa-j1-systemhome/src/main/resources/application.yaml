@@ -1,0 +1,9 @@
+server:
+  port: ${sp.sample}
+spring:
+  application:
+    name: ${sn.sample}
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false

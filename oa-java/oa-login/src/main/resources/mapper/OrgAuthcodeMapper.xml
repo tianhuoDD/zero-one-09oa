@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.login.mapper.OrgAuthcodeMapper">
+   <insert id="saveVoucherInfo" parameterType="com.zeroone.star.login.entity.OrgAuthcode">
+       insert into org_oauthcode(xid, xcreateTime, xsequence,
+       xupdateTime, xdistributeFactor, xaccessToken, xclientId,
+       xcode, xcodeUsed, xperson, xscope)
+       value
+       <if test="orgAuthcode.xid != null">
+           #{orgAuthcode.xid},
+       </if>
+       <if test="orgAuthcode.xcreateTime != null">
+           #{orgAuthcode.xcreateTime},
+       </if>
+       <if test="orgAuthcode.xsequence != null">
+           #{orgAuthcode.xsequence},
+       </if>
+       <if test="orgAuthcode.xupdateTime != null">
+           #{orgAuthcode.xupdateTime},
+       </if>
+       <if test="orgAuthcode.xdistributeFactor != null">
+           #{orgAuthcode.xdistributeFactor},
+       </if>
+       <if test="orgAuthcode.xaccessToken != null">
+           #{orgAuthcode.xaccessToken},
+       </if>
+       <if test="orgAuthcode.xclientId != null">
+           #{orgAuthcode.xclientId},
+       </if>
+       <if test="orgAuthcode.xcode != null">
+           #{orgAuthcode.xcode},
+       </if>
+       <if test="orgAuthcode.xcodeUsed != null">
+           #{orgAuthcode.xcodeUsed},
+       </if>
+       <if test="orgAuthcode.xperson != null">
+           #{orgAuthcode.xperson},
+       </if>
+       <if test="orgAuthcode.xscope != null">
+           #{orgAuthcode.xscope}
+       </if>
+   </insert>
+</mapper>

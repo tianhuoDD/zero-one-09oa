@@ -1,0 +1,35 @@
+file:
+ templateDownloadPath:
+ field:
+  filename: 文件名
+  template-url: 模板表src
+  template-alt: 模板表文字描述
+  template-herf: 模板表链接地址
+ download:
+  summary: 下载导入模板表
+ html:
+  summary: HTML静态页面访问
+test:
+ get:
+  summary: 测试查询
+room:
+ setting: 
+  get:
+   summary: 获取会议室信息
+  delete:
+   summary: 删除会议室信息
+  put: 
+   summary: 修改会议室信息
+  filed:
+   id: 数据唯一标识
+   name: 会议室名称
+   location: 会议室位置
+   floor: 会议室楼层
+   pnum: 容纳人数
+   rnum: 会议室门牌
+   num: 分机号
+   device: 会议室设备
+   status: 会议室状态
+  
+   
+     

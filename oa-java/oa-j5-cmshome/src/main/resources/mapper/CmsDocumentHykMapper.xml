@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.cmshome.mapper.CmsDocumentHykMapper">
+
+
+    <!--获取栏目列表-->
+    <select id="getDocumentsWithDetails" resultType="com.zeroone.star.project.vo.j5.cmshome.GetDocumentsListVO">
+        SELECT
+            d2.xid AS id,
+            d2.xtitle AS title,
+            d2.xcreateTime AS publishTime,
+            u1.xlevelName AS creatorUnit,
+            u2.xname AS creatorName,
+            d2.xcategoryName AS categoryName
+        FROM
+            cms_document d2
+                LEFT JOIN
+            org_unit u1 ON d2.xcreatorUnitName = u1.xdistinguishedName
+                LEFT JOIN
+            org_identity u2 ON d2.xcreatorIdentity = u2.xdistinguishedName
+        WHERE
+            d2.xcategoryId = #{xcategoryName}
+        ORDER BY
+            d2.xcreateTime DESC
+            LIMIT #{pageSize} OFFSET #{offset}
+    </select>
+
+
+<!--分页-->
+    <select id="countDocuments" resultType="long">
+        SELECT COUNT(*)
+        FROM cms_document
+        WHERE xcategoryId = #{xcategoryName}
+    </select>
+
+
+
+
+
+
+    <!-- 获取栏目信息 -->
+
+    <select id="selectColumnMessagesByXid" resultType="com.zeroone.star.project.vo.j5.cmshome.GetColumnMessagesVO">
+        SELECT
+            c3.xdescription AS description,
+            c3.xappIcon AS appIcon,
+            d3.xappName AS appName,
+            COALESCE(GROUP_CONCAT(a.xcategoryList SEPARATOR ','), '') AS additionalFields,
+            COALESCE(GROUP_CONCAT(d3.xcategoryName SEPARATOR ','), '') AS xcategoryNameFields
+        FROM
+                (SELECT DISTINCT xappName, xappId, xcategoryName FROM cms_document) d3
+                    LEFT JOIN
+            cms_appinfo c3 ON d3.xappName = c3.xappName
+                    LEFT JOIN
+            cms_appinfo_categorylist a ON a.APPINFO_XID = d3.xappId
+        WHERE
+            d3.xappId = #{xid}
+        GROUP BY
+            d3.xappName, c3.xdescription, c3.xappIcon
+    </select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>

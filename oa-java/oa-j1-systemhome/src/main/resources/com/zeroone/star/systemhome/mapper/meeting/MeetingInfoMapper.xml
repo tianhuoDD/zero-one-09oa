@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.systemhome.mapper.meeting.MeetingInfoMapper">
+    <resultMap id="MeetingInfoResultMap" type="com.zeroone.star.project.dto.j1.meeting.getting.MySponsorMeetingInfoDTO">
+        <result property="xroomName" column="mr_xname"/>
+        <result property="xsubject" column="m_subject"/>
+        <result property="xcompletedTime" column="m_xcompletedTime"/>
+        <result property="xstartTime" column="m_xstartTime"/>
+    </resultMap>
+
+    <resultMap id="MeetingInfoResultMap2" type="com.zeroone.star.project.dto.j1.meeting.getting.InvitedMeetingInfoDTO">
+        <result property="xroomName" column="mr_xname"/>
+        <result property="xsubject" column="m_subject"/>
+        <result property="xcompletedTime" column="m_xcompletedTime"/>
+        <result property="xstartTime" column="m_xstartTime"/>
+    </resultMap>
+
+    <select id="selectMSMI" resultMap="MeetingInfoResultMap">
+        SELECT m.xsubject AS m_subject, m.xstartTime AS m_xstartTime,
+               m.xcompletedTime AS m_xcompletedTime, mr.xname AS mr_xname
+        FROM zo_oa.org_person p
+        LEFT JOIN zo_oa.mt_meeting m ON p.xname LIKE m.xapplicant
+        LEFT JOIN zo_oa.mt_room mr ON m.xroom LIKE mr.xid
+        WHERE p.xid = #{id} AND m.xcompletedTime &gt; STR_TO_DATE(#{currentTime}, '%Y-%m-%d %H:%i:%s')
+        ORDER BY m.xstartTime DESC;
+    </select>
+    <select id="selectIMI" resultMap="MeetingInfoResultMap2">
+        SELECT
+            m.xsubject AS m_subject, m.xstartTime AS m_xstartTime,
+            m.xcompletedTime AS m_xcompletedTime, mr.xname AS mr_xname
+        FROM zo_oa.org_person p
+        JOIN zo_oa.mt_meeting_invitepersonlist mmi ON p.xdistinguishedName = mmi.xinvitePersonList
+        JOIN zo_oa.mt_meeting m ON m.xid = mmi.MEETING_XID
+        JOIN zo_oa.mt_room mr ON m.xroom = mr.xid
+        WHERE p.xid = #{id} AND m.xcompletedTime &gt; STR_TO_DATE(#{currentTime}, '%Y-%m-%d %H:%i:%s')
+        ORDER BY m.xstartTime DESC;
+    </select>
+</mapper>
+
+
+
+
+
+
+

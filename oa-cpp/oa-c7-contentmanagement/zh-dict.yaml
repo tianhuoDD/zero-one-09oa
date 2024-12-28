@@ -1,0 +1,314 @@
+﻿newdto:
+ get:   
+  logo: 栏目标识
+  name: 栏目名称 
+  as: 栏目别名
+  ds: 栏目描述
+  sort1: 栏目排序
+  type: 栏目类型
+  document: 文档类型
+  ignore: 忽略标题
+  check: 检查草稿
+  timed: 定时视图
+  column: 栏目视图
+  autosave: 自动保存
+  edit: 默认编辑表单
+  read: 默认阅读表单
+  summary: 获取栏目属性
+
+ put:
+  summary: 修改栏目属性
+  id: 数据唯一标识
+  picture: 图标
+  fw: 可见范围
+  publisher: 发布者
+  administrators: 管理者
+
+
+column:
+ query-all: 
+  summary: 查询所有表单
+ modify:
+  summary: 修改栏目信息
+ add:
+  summary: 新建栏目
+ get:
+  summary: 获取栏目信息
+ post:
+  summary: 修改栏目信息
+ remove: 
+  summary: 删除栏目
+ field:
+    id: 栏目唯一键值
+    name: 栏目名称
+    other-name: 栏目别名
+    description: 栏目描述
+    sort: 栏目排序
+    type: 栏目类型
+    default-edit-form: 默认编辑表单
+    default-read-form: 默认编辑表单
+    image: 栏目图标2
+ delete:
+  summary: 删除栏目分类
+  id: 被删除栏目分类的id
+
+organization:
+ query-organization: 
+  summary: 查询组织的组织名称
+  name: 组织名称
+  id: 数据唯一标识
+  pid: 上属组织唯一标识
+  major: 上属组织名称
+ query-organization-member:
+  summary: 查询组织成员名称
+  company: 所属组织名称
+  name: 组织成员名称
+  id: 数据唯一标识
+query: 查询名称
+person:
+ query-person: 
+  summary: 查询人员的名称
+  name: 人员名称
+  id: 数据唯一标识
+  page: 查询页数标号
+  
+  cms_appinfo:
+  xid:
+    summary: 唯一标识符，用于区分不同的应用程序。
+  xcreate-time:
+    summary: 记录应用程序创建的时间。
+  xsequence:
+    summary: 可能用于排序或表示应用程序的版本或状态。
+  xupdate-time:
+    summary: 记录应用程序最后更新时间。
+  xdistribute-factor:
+    summary: 可能表示分发因素，具体含义取决于系统设计。
+  xall-people-publish:
+    summary: 是否允许所有人发布内容的标志。
+  xall-people-view:
+    summary: 是否允许所有人查看内容的标志。
+  xshow-all-documents:
+    summary: 是否显示所有文档的标志。
+  xanonymous-able:
+    summary: 是否允许匿名访问的标志。
+  xapp-alias:
+    summary: 应用程序的别名，通常用于显示。
+  xapp-icon:
+    summary: 应用程序的图标，可能以 Base64 编码形式存储。
+  xapp-info-seq:
+    summary: 应用程序的信息序列，可能用于排序或索引。
+  xapp-memo:
+    summary: 应用程序的备注或说明信息。
+  xapp-name:
+    summary: 应用程序的名称。
+  xapp-type:
+    summary: 应用程序的类型，例如 Web 应用、移动应用等。
+  xcreator-identity:
+    summary: 创建者的身份标识，可能是用户ID或角色。
+  xcreator-person:
+    summary: 创建者的姓名或用户名。
+  xcreator-top-unit-name:
+    summary: 创建者所在的顶级单位名称。
+  xcreator-unit-name:
+    summary: 创建者所在的单位名称。
+  xdefault-edit-form:
+    summary: 默认的编辑表单标识。
+  xdefault-read-form:
+    summary: 默认的阅读表单标识。
+  xdescription:
+    summary: 应用程序的描述信息。
+  xdocument-type:
+    summary: 文档类型，可能与应用程序处理的文档类型有关。
+  xicon-color:
+    summary: 应用程序图标的颜色。
+  xsend-notify:
+    summary: 是否发送通知的标志。
+
+
+configuration:
+ atq:
+  get:
+   summary: 获取栏目分类列表
+  put:
+   summary: 修改栏目分类
+  add:
+   summary: 新增栏目分类
+  delete:
+   summary: 删除栏目分类
+  choose:
+   summary: 选择分类表单
+   edit: 发布类编辑表单
+   read: 发布类阅读表单
+  name:
+   summary: 名称
+  type:
+   summary: 分类表单对应的示意
+  field: 
+   summary: 分类属性
+  basic:
+   summary: 基本属性
+   logo: 分类标识
+   name: 分类别名
+   type: 文档类型
+   auto: 发布时是否发送信息
+  process: 使用流程
+  range: 可见范围
+  publish: 发布者
+  manage: 管理者
+
+
+data-config:
+ get:
+  summary: 获取数据配置详情
+ post:
+  summary: 新增数据配置
+ put:
+  summary: 修改数据配置
+ field:
+  xid: 字典唯一标识id
+  xname: 字典名称
+  xalias: 字典别名
+  xdescription: 字典描述
+  xitemid: 项目id
+  xitemType: 项目类型
+  xitemCategory: pp_dict
+  xitemPrimitiveType: 项目原始类型
+  xitemStringValueType: 项目字符串值类型
+  xstringLongValue: 长字符型值
+  xstringShortValue: 短字符型值
+  xbooleanValue: 布尔值
+  xnumberValue: 整数值
+  xdateTimeValue: 日期时间值
+  xdateValue: 日期值
+  xtimeValue: 时间值
+  xcreatTime: 创建时间
+  xsequence: 项目创建时间+项目id
+  xupdateTime: 项目更新时间
+  xappId: appId
+  xbundle: 字典id
+  allitems: 所有项目
+
+
+data:
+ list:
+  sequence: 序列
+  picture: 图标
+  xid: id
+  xname: 字典名
+  summary1: 获取数据配置列表
+  summary2: 获取数据配置详情
+  summary3: 新增数据配置
+ details:
+  bs: 标识
+  name: 名称
+  ms: 描述
+  reado: 是否只读
+  ys: 表单样式
+  picture: 图标
+  dy: 打印
+  sc: 脚本
+  type: 样式
+  attr: 属性
+  xalias: 别名
+  xsequence: 序列
+
+delete:
+ data: 删除数据配置 
+ resource: 删除附件 
+
+
+  
+
+form-template:
+ category: "分页获取表单模板列表"
+ add: "新增表单模板"
+ field:
+  id: "表单模板id"
+  category: "表单模板分类"
+  name: "表单模板名称"
+  desciption: "表单模板描述"
+  data: "表单模板数据"
+  icon: "表单模板图标"
+content:
+ management:
+  delete:
+   summary: 删除栏目表单
+  filed:
+   xid: 表单id(不可修改)
+   xcreateTime: 创建时间
+   xsequence: 序列
+   xupdateTime: 更新时间
+   xdistributeFactor: 分发因子
+   xalias: 别名
+   xdata: 数据
+   xdescription: 描述
+   xeditor: 编辑者
+   xname: 名称
+   xproperties: 属性
+form:
+ list:
+  summary1: 获取表单列表
+  summary2: 获取表单详情 
+  summary3: 创建栏目表单
+  xname: 表单名称
+  xalias: 表单别名
+  xid: 表单列表id
+  xcreatetime: 创建时间
+ details:
+  bs: 标识
+  name: 名称
+  description: 描述
+  reado: 是否只读
+  ys: 表单样式
+  picture: 图标
+  dy: 打印
+  sc: 脚本
+  type: 样式
+  attr: 属性
+
+
+appndict:
+ query:
+  summary: 获取附件详情
+ query-all:
+  summary: 获取附件列表
+ field:
+  id: 附件ID
+  name: 附件名
+  decs: 文件名+大小等描述
+  appid: 应用ID
+  utime: 更新时间
+  alias: 别名
+  
+
+atta:
+ list:
+  summary1: 获取附件列表
+  summary2: 获取附件详情 
+  xid: 附件id
+  xname: 附件名称
+  xfileName: 文件路径名称
+  xlength: 文件大小
+  xcreatetime: 创建时间
+  xdescription: 附件信息
+  xdata: 附件内容
+  xalias: 附件别名
+resourcedocument:
+ query:
+  summary1: 新增附件
+  summary2: 修改附件
+  fields:
+    xid: 文件编号
+    xname: 名称
+    xdescription: 附件信息
+    xupdate_time: 上次更新时间
+    xappid: app编号
+    xalias: 别名
+    xfile_name: 实际文件名
+
+    
+ 
+ 
+
+
+

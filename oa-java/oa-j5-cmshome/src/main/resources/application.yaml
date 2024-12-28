@@ -1,0 +1,9 @@
+server:
+  port: ${sp.cmshome}
+spring:
+  application:
+    name: ${sn.cmshome}
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false

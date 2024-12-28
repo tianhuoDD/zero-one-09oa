@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace等于mapper接口类的全限定名,这样实现对应 -->
+<mapper namespace="com.zeroone.star.procmanager.mapper.PpEAttachmentMapper">
+
+    <!-- 获取附件列表 -->
+    <select id="selectPage" resultType="com.zeroone.star.procmanager.entity.PpEFile">
+        SELECT
+            xid AS "xid",
+            xname AS "xname",
+            xdescription AS "xdescription",
+            xlength AS "xlength",
+            xalias AS "xalias",
+            xfileName AS "xfileName"
+        FROM
+            pp_e_file
+        ORDER BY
+            xid
+    </select>
+
+    <!-- 获取附件详情 -->
+    <select id="selectById" resultType="com.zeroone.star.procmanager.entity.PpEFile">
+        SELECT
+            xid AS "xid",
+            xname AS "xname",
+            xdescription AS "xdescription",
+            xlength AS "xlength",
+            xalias AS "xalias",
+            xfileName AS "xfileName"
+        FROM
+            pp_e_file
+        WHERE
+            xid = #{id}
+    </select>
+</mapper>

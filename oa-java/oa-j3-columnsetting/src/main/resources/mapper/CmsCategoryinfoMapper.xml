@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.columnsetting.mapper.CmsCategoryinfoMapper">
+    <insert id="addManageablegroupList">
+        INSERT INTO cms_categoryinfo_manageablegrouplist (CATEGORYINFO_XID)
+        VALUES (#{categoryId})
+    </insert>
+    <insert id="addManageablepersonList">
+        INSERT INTO cms_categoryinfo_manageablepersonlist (CATEGORYINFO_XID)
+        VALUES (#{categoryId})
+    </insert>
+    <insert id="addManageableunitList">
+        INSERT INTO cms_categoryinfo_manageableunitlist (CATEGORYINFO_XID)
+        VALUES (#{categoryId})
+    </insert>
+
+    <insert id="addPublishablegroupList">
+        INSERT INTO cms_categoryinfo_publishablegrouplist (CATEGORYINFO_XID)
+        VALUES (#{categoryId})
+    </insert>
+    <insert id="addPublishablepersonList">
+        INSERT INTO cms_categoryinfo_publishablepersonlist (CATEGORYINFO_XID)
+        VALUES (#{categoryId})
+    </insert>
+    <insert id="addPublishableunitList">
+        INSERT INTO cms_categoryinfo_publishableunitlist (CATEGORYINFO_XID)
+        VALUES (#{categoryId})
+    </insert>
+
+    <insert id="addViewablegroupList">
+        INSERT INTO cms_categoryinfo_viewablegrouplist (CATEGORYINFO_XID)
+        VALUES (#{categoryId})
+    </insert>
+    <insert id="addViewablepersonList">
+        INSERT INTO cms_categoryinfo_viewablepersonlist (CATEGORYINFO_XID)
+        VALUES (#{categoryId})
+    </insert>
+    <insert id="addViewableunitList">
+        INSERT INTO cms_categoryinfo_viewableunitlist (CATEGORYINFO_XID)
+        VALUES (#{categoryId})
+    </insert>
+
+    <delete id="deleteManageablegroupList">
+        DELETE FROM cms_categoryinfo_manageablegrouplist
+        WHERE CATEGORYINFO_XID = #{categoryId}
+    </delete>
+    <delete id="deleteManageablepersonList">
+        DELETE FROM cms_categoryinfo_manageablepersonlist
+        WHERE CATEGORYINFO_XID = #{categoryId}
+    </delete>
+    <delete id="deleteManageableunitList">
+        DELETE FROM cms_categoryinfo_manageableunitlist
+        WHERE CATEGORYINFO_XID = #{categoryId}
+    </delete>
+    <delete id="deletePublishablegroupList">
+        DELETE FROM cms_categoryinfo_publishablegrouplist
+        WHERE CATEGORYINFO_XID = #{categoryId}
+    </delete>
+    <delete id="deletePublishablepersonList">
+        DELETE FROM cms_categoryinfo_publishablepersonlist
+        WHERE CATEGORYINFO_XID = #{categoryId}
+    </delete>
+    <delete id="deletePublishableunitList">
+        DELETE FROM cms_categoryinfo_publishableunitlist
+        WHERE CATEGORYINFO_XID = #{categoryId}
+    </delete>
+    <delete id="deleteViewablegroupList">
+        DELETE FROM cms_categoryinfo_viewablegrouplist
+        WHERE CATEGORYINFO_XID = #{categoryId}
+    </delete>
+    <delete id="deleteViewablepersonList">
+        DELETE FROM cms_categoryinfo_viewablepersonlist
+        WHERE CATEGORYINFO_XID = #{categoryId}
+    </delete>
+    <delete id="deleteViewableunitList">
+        DELETE FROM cms_categoryinfo_viewableunitlist
+        WHERE CATEGORYINFO_XID = #{categoryId}
+    </delete>
+
+
+    <select id="getManageablegroupList" resultType="java.lang.String">
+        SELECT ifnull(xmanageableGroupList, '')
+        FROM cms_categoryinfo_manageablegrouplist
+        WHERE CATEGORYINFO_XID = #{categoryId}
+    </select>
+    <select id="getManageablepersonList" resultType="java.lang.String">
+        SELECT ifnull(xmanageablePersonList, '')
+        FROM cms_categoryinfo_manageablepersonlist
+        WHERE CATEGORYINFO_XID = #{categoryId}
+    </select>
+    <select id="getManageableunitList" resultType="java.lang.String">
+        SELECT ifnull(xmanageableUnitList, '')
+        FROM cms_categoryinfo_manageableunitlist
+        WHERE CATEGORYINFO_XID = #{categoryId}
+    </select>
+    <select id="getPublishablegroupList" resultType="java.lang.String">
+        SELECT ifnull(xpublishableGroupList, '')
+        FROM cms_categoryinfo_publishablegrouplist
+        WHERE CATEGORYINFO_XID = #{categoryId}
+    </select>
+    <select id="getPublishablepersonList" resultType="java.lang.String">
+        SELECT ifnull(xpublishablePersonList, '')
+        FROM cms_categoryinfo_publishablepersonlist
+        WHERE CATEGORYINFO_XID = #{categoryId}
+    </select>
+    <select id="getPublishableunitList" resultType="java.lang.String">
+        SELECT ifnull(xpublishableUnitList, '')
+        FROM cms_categoryinfo_publishableunitlist
+        WHERE CATEGORYINFO_XID = #{categoryId}
+    </select>
+    <select id="getViewablegroupList" resultType="java.lang.String">
+        SELECT ifnull(xviewableGroupList, '')
+        FROM cms_categoryinfo_viewablegrouplist
+        WHERE CATEGORYINFO_XID = #{categoryId}
+    </select>
+    <select id="getViewablepersonList" resultType="java.lang.String">
+        SELECT ifnull(xviewablePersonList, '')
+        FROM cms_categoryinfo_viewablepersonlist
+        WHERE CATEGORYINFO_XID = #{categoryId}
+    </select>
+    <select id="getViewableunitList" resultType="java.lang.String">
+        SELECT  ifnull(xviewableUnitList, '')
+        FROM cms_categoryinfo_viewableunitlist
+        WHERE CATEGORYINFO_XID = #{categoryId}
+    </select>
+
+
+    <update id="updateManageablegroupList">
+        UPDATE cms_categoryinfo_manageablegrouplist
+        SET  xmanageableGroupList = #{manageablegroupList}
+        WHERE CATEGORYINFO_XID = #{categoryId}
+    </update>
+    <update id="updateManageablepersonList">
+        UPDATE cms_categoryinfo_manageablepersonlist
+        SET  xmanageablePersonList = #{manageablepersonList}
+        WHERE CATEGORYINFO_XID = #{categoryId}
+    </update>
+    <update id="updateManageableunitList">
+        UPDATE cms_categoryinfo_manageableunitlist
+        SET  xmanageableUnitList = #{manageableunitList}
+        WHERE CATEGORYINFO_XID = #{categoryId}
+    </update>
+    <update id="updateViewablegroupList">
+        UPDATE cms_categoryinfo_viewablegrouplist
+        SET  xviewableGroupList = #{viewablegroupList}
+        WHERE CATEGORYINFO_XID = #{categoryId}
+    </update>
+    <update id="updateViewablepersonList">
+        UPDATE cms_categoryinfo_viewablepersonlist
+        SET  xviewablePersonList = #{viewablepersonList}
+        WHERE CATEGORYINFO_XID = #{categoryId}
+    </update>
+    <update id="updateViewableunitList">
+        UPDATE cms_categoryinfo_viewableunitlist
+        SET  xviewableUnitList = #{viewableunitList}
+        WHERE CATEGORYINFO_XID = #{categoryId}
+    </update>
+    <update id="updatePublishablegroupList">
+        UPDATE cms_categoryinfo_publishablegrouplist
+        SET  xpublishableGroupList = #{publishablegroupList}
+        WHERE CATEGORYINFO_XID = #{categoryId}
+    </update>
+    <update id="updatePublishablepersonList">
+        UPDATE cms_categoryinfo_publishablepersonlist
+        SET  xpublishablePersonList = #{publishablepersonList}
+        WHERE CATEGORYINFO_XID = #{categoryId}
+    </update>
+    <update id="updatePublishableunitList">
+        UPDATE cms_categoryinfo_publishableunitlist
+        SET  xpublishableUnitList = #{publishableunitList}
+        WHERE CATEGORYINFO_XID = #{categoryId}
+    </update>
+
+
+
+
+</mapper>

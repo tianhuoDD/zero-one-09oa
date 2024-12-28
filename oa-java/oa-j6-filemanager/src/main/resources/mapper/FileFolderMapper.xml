@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.filemanager.mapper.FileFolderMapper">
+
+    <delete id="deleteFolderByFolderId" parameterType="String">
+        WITH RECURSIVE folder_tree AS (
+            SELECT xid, xsuperior
+            FROM file_folder
+            WHERE xsuperior = #{folderId} -- 要删除的文件夹ID
+            UNION ALL
+            SELECT f.xid, f.xsuperior
+            FROM file_folder f
+                     INNER JOIN folder_tree ft ON f.xsuperior = ft.xid
+        )
+        DELETE FROM file_folder WHERE xid IN (SELECT xid FROM folder_tree); -- 删除文件夹
+    </delete>
+    <delete id="deleteAttachmentsByFolderId" parameterType="String">
+        WITH RECURSIVE folder_tree AS (
+            SELECT xid, xsuperior
+            FROM file_folder
+            WHERE xid = #{folderId} -- 要删除的文件夹ID
+            UNION ALL
+            SELECT f.xid, f.xsuperior
+            FROM file_folder f
+                     INNER JOIN folder_tree ft ON f.xsuperior = ft.xid
+        )
+        DELETE FROM file_attachment WHERE xfolder IN (SELECT xid FROM folder_tree); -- 删除附件
+    </delete>
+    
+<!--    <update id="updateFolderByFolderId" parameterType="map">-->
+<!--        WITH RECURSIVE folder_tree AS (-->
+<!--        SELECT xid, xsuperior-->
+<!--        FROM file_folder-->
+<!--        WHERE xsuperior = #{folderId} &#45;&#45; 要更新的文件夹ID-->
+<!--        UNION ALL-->
+<!--        SELECT f.xid, f.xsuperior-->
+<!--        FROM file_folder f-->
+<!--        INNER JOIN folder_tree ft ON f.xsuperior = ft.xid-->
+<!--        )-->
+<!--        UPDATE file_folder-->
+<!--        SET xname = #{newFolderName}-->
+<!--        WHERE xid IN (SELECT xid FROM folder_tree); &#45;&#45; 更新文件夹-->
+<!--    </update>-->
+</mapper>

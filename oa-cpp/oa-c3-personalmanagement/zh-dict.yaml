@@ -1,0 +1,148 @@
+person:
+  setting:
+    get:
+      summary: 获取人员名称列表（条件+分页）
+      field:
+        id: 唯一编号
+        name: 人员名称
+        phone: 手机号码
+        head: 头像地址
+        xunique: 唯一性
+        xstatus: 状态
+        input: 输入参数
+  add:
+   summary: 新增人员
+   name: 人员名称
+   number: 手机号码
+   sex: 性别
+   email: 电子邮箱
+   qqhaoma: qq号码
+   ruzhishijian: 入职时间
+   dengluip: 登录ip
+   mijibiaoshi: 密级标识
+   weiyibianma: 唯一编码
+   renyuangonghao: 人员工号
+   huibaoduixiang: 汇报对象
+   weixinhao: 微信号
+   bangongdianhua: 办公电话
+   chushengriqi: 出生日期
+   renyuanmingcheng: 人员名称
+   miaoshu: 描述
+   zhuangtai: 状态
+   nan: 男
+   pinyin: 拼音
+   pinyinsuoxie: 拼音缩写
+  delete:
+   summary: 删除人员
+   id: 人员唯一id
+personal-management:
+  passwd-expired-time:
+    title: 设置密码到期时间
+    field:
+      id: 人员id
+      date: 日期
+  reset-passwd:
+    title1: 获取个人信息
+    title2: 重置人员密码
+    field:
+      id: 人员id
+      cfg: 配置
+      passwd: 密文
+person-attribute:
+  field:
+    attribute: 属性
+    key: 值
+    describe: 描述
+  title:
+    summary: 获取个人属性
+    modify: 修改个人属性
+domain:
+ dto:
+  OrgManagement:
+   PersonalManagement:
+    DutySetting:
+     Xidentity: 职工身份的唯一标识
+     unitduty_xid: 要担任的职务唯一标识
+     summary: 设置职务
+ vo:
+  OrgManagement:
+   PersonalManagement:
+    SearchDuty:
+     Xname: 要查询的职务名称
+     Res: 查询到的职务名称
+     summary: 查询职务
+     xlevelName: 职务所属的公司
+    RoleInfo:
+     Xid: 职工唯一标识
+     Role: 担任的角色名称
+     RoleList: 角色列表
+     xdistinguishedName: 角色全称
+     xdescription: 描述
+     summary: 获取角色
+personmanageinfo:
+  field:
+    xid : 内部编码
+    xunique: 唯一编码
+    xname: 姓名
+    xmobile: 手机号码
+    xofficePhone: 工作电话
+    xgenderType: 性别
+    xmail: 邮箱
+    xqq: QQ号码
+    xweixin: 微信号
+    xboardDate: 入职时间
+    xipAddress: 登录IP
+    xsubjectSecurityClearance: 密级标识
+    xemployee: 工号
+    xbirthday: 生日
+    xdescription: 描述
+    xstatus: 状态
+    xsuperior: 汇报对象
+  query:
+    summary: 查询人员信息
+  modify:
+    summary: 修改人员信息
+changeprofile:
+ user:
+  field:
+   id: 人员唯一编号
+   xiconUrl: 人员头像地址
+   xiconLdpiUrl: 低密度图标
+   xiconMdpiUrl: 中密度图标
+  summary: 更换头像
+disableunbanperson:
+ user:
+  field:
+   id: 人员唯一编号
+   state: 人员头像地址
+  summary: 解禁/禁用人员
+Personattribute:
+  query:
+    summary: 查询属性
+    xunique: 用xunique查询
+  modify: 
+    summary: 修改属性
+  delete:
+    summary: 删除属性  
+  add:
+    summary: 添加属性  
+sample:
+ modifyidentity:
+  xid: 唯一编码
+  xmajor: 主身份
+  xname: 身份名称
+ field:
+  xid: 唯一编码
+  xname: 身份名称
+  xmajor: 主身份
+  xdistinguishedName: 担任职务
+  xunitName: 所在组织
+  xlockTime: 到期时间
+  xstatusDes: 锁定原因
+  xstatus: 锁定状态
+ put:
+  summary: 修改个人身份  
+ get:
+  summary: 获取个人身份   
+ modify:
+  summary: 锁定/解锁用户

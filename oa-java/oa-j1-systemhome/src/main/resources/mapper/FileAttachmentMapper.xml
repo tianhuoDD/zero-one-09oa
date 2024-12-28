@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.systemhome.mapper.FileAttachmentMapper">
+
+    <select id="selectByPerson" parameterType="String" resultType="com.zeroone.star.systemhome.entity.file.FileAttachment">
+        SELECT
+            xid,
+            xname,
+            xextension,
+            xsequence,
+            xperson,
+            xcreateTime,
+            xextension,
+            xlastUpdateTime,
+            xlastUpdatePerson,
+            xlength,
+            xstorage
+        FROM
+            file_attachment
+        WHERE
+            xperson = 'ddg'
+        ORDER BY
+            xcreateTime DESC,xlastUpdateTime DESC
+            LIMIT 0,10
+    </select>
+
+</mapper>
+

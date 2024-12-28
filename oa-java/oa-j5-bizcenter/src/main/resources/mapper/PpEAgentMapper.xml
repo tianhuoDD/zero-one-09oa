@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.bizcenter.mapper.PpEAgentMapper">
+
+
+    <select id="getReaddatapathlist" resultType="com.zeroone.star.bizcenter.entity.PpEAgentReaddatapathlist">
+
+
+        select  AGENT_XID as agentXid ,xreadDataPathList,xorderColumn
+        from pp_e_agent_readdatapathlist
+        where AGENT_XID
+        in
+        <foreach collection="ids" item="item" separator="," open="(" close=")">
+            #{item}
+        </foreach>
+
+    </select>
+</mapper>

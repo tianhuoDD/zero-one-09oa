@@ -1,0 +1,17 @@
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+# 自定义starter配置
+zo:
+  cloud:
+    starter:
+      # oauth2 stater 配置
+      oauth2:
+        # 管理端客户端名称
+        mgr-id: oa-manager
+        # 管理端客户端密钥
+        mgr-password: 123456
+        # 用户端客户端名称
+        user-id: oa-app
+        # 用户端客户端密钥
+        user-password: 123456

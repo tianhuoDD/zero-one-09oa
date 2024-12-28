@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.procmanager.mapper.DetailedConfigurationMapper">
+<!--    select xbooleanValue,xnumberValue,xstringShortValue from PP_E_APPLICATIONDICTITEM where xbundle=#{xbundle}-->
+    <select id="queryDataAll"
+            resultType="com.zeroone.star.project.vo.j4.procmanager.data.properties.DetailedConfigurationVO">
+        select xbundle, xpath0, xbooleanValue, xnumberValue, xstringShortValue, xstringLongValue
+        from PP_E_APPLICATIONDICTITEM
+        where xbundle = #{xbundle}
+    </select>
+</mapper>

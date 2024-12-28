@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.cmshome.mapper.GetColumnListMapper">
+    <select id="getColumnList" resultType="com.zeroone.star.project.query.j5.cmshome.GetColumnList">
+        select
+        cms_categoryinfo.xid as id,
+        cms_categoryinfo.xcreateTime as createTime,
+        cms_categoryinfo.xupdateTime as updateTime,
+        cms_categoryinfo.xappId as appId,
+        cms_categoryinfo.xappName as appName,
+        cms_appinfo.xappType as appType,
+        cms_categoryinfo.xdescription as description,
+        cms_appinfo.xappIcon as appIcon,
+        cms_appinfo.xiconColor as iconColor,
+        cms_categoryinfo.xcategoryName as categoryName,
+        cms_categoryinfo.xcreatorPerson as creatorPerson,
+        cms_categoryinfo.xcreatorUnitName as creatorUnitName,
+        cms_categoryinfo.xformName as form,
+        cms_document.xsummary as summary,
+        cms_document.xtitle as title
+        from `zo_oa`.cms_categoryinfo, `zo_oa`.cms_document, `zo_oa`.cms_appinfo
+        <where>
+            cms_categoryinfo.xappName = cms_document.xappName
+            and
+            cms_categoryinfo.xappName = cms_appinfo.xappName
+            and
+            <if test="appName != null and appName != ''">
+                cms_categoryinfo.xappName = #{appName}
+            </if>
+        </where>
+        limit #{pageIndex}, #{pageSize}
+    </select>
+</mapper>

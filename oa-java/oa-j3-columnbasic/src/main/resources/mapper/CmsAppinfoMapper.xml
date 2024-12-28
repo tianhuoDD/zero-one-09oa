@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.basicinformation.mapper.CmsAppinfoMapper">
+    <update id="updateId" parameterType="com.zeroone.star.basicinformation.entity.CmsAppinfo" >
+        UPDATE cms_appinfo SET xappAlias=#{xappAlias}, xappInfoSeq=#{xappInfoSeq}, xappName=#{xappName}, xappType=#{xappType}, xdescription=#{xdescription},xupdateTime=#{xupdateTime},xappIcon=#{xappIcon}  WHERE xid=#{xid}
+    </update>
+
+    <select id="selectAppTypeList" resultType="com.zeroone.star.project.j3.appinfo.dto.AppTypeDTO">
+        select xappType,count(xappType) xappCount from cms_appinfo group by xappType
+    </select>
+
+    <select id="basicinformation" parameterType="string" resultType="com.zeroone.star.project.j3.columnbasicinformation.dto.BasicinformationDTO">
+        select xid,xappName,xappAlias,xdescription,xappInfoSeq,xappType,xappIcon from cms_appinfo where xid=#{xid}
+    </select>
+    <select id="queryform" parameterType="string" resultType="java.lang.String">
+        select xalias from cms_form where xappId=#{xappId}
+    </select>
+
+
+</mapper>

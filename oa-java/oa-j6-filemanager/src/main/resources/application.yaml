@@ -1,0 +1,11 @@
+#server:
+#  port: ${sp.calmanager}
+#spring:
+#  application:
+#    name: ${sn.calmanager}
+
+server:
+  port: ${sp.oa-j6-filemanager}
+spring:
+  application:
+    name: ${sn.oa-j6-filemanager}

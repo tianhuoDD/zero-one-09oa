@@ -1,0 +1,17 @@
+#server:
+#  port: 8888
+#spring:
+#  application:
+#    name: CAL
+
+#server:
+#  port: ${sp.calmanager}
+#spring:
+#  application:
+#    name: ${sn.calmanager}
+
+server:
+  port: ${sp.oa-j6-calmanager}
+spring:
+  application:
+    name: ${sn.oa-j6-calmanager}

@@ -1,0 +1,44 @@
+server:
+  port: ${sp.app}
+spring:
+  application:
+    name: ${sn.app}
+  cloud:
+    stream:
+      bindings:
+        attachment-upload-output:
+          destination: attachment-upload-topic
+          content-type: application/octet-stream
+        attachment-upload-input:
+          destination: attachment-upload-topic
+          content-type: application/octet-stream
+          group: attachment-upload-consumer-group
+      rocketmq:
+        binder:
+          name-server: ${rocket-mq.name-server}
+        bindings:
+          attachment-upload-output:
+            producer:
+              group: attachment-upload-producer-group
+              sync: true
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
+logging:
+  level:
+    com:
+      alibaba:
+        cloud:
+          stream:
+            binder:
+              rocketmq: DEBUG
+seata:
+  tx-service-group: tx-business
+  enabled: true
+  service:
+    grouplist:
+      default: ${seata.default}
+    vgroup-mapping:
+      tx-business: default
+    disable-global-transaction: false
+

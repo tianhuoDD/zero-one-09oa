@@ -1,0 +1,51 @@
+system:
+ setting:
+  get:
+   summary: 获取系统基本信息
+  field:
+   sysname: 系统名称
+   systitle: 系统副标题
+   language: 语言环境
+   version: 当前系统版本
+   id: 数据唯一标识
+
+sys:
+ setting:
+   put:
+    summary: 修改系统名称和修改系统副标题
+    subtitle: 修改系统副标题
+    name: 修改系统名称
+   field:
+    id: 系统唯一标识
+    systemname: 系统名称
+    systemsubtitle: 系统副标题
+
+formTemplate:
+  category:
+    get:
+      summary: 获取表单模版分类
+  get-all:
+    summary: 获取表单模版（分页）
+  get:
+    summary: 获取表单详情
+  post:
+   summary: 新增表单模板
+  delete: 
+    summary: 删除表单模板
+  put:
+    summary: 修改表单模板
+  field:
+    xid: 表单模板ID
+    xcreateTime: 创建时间
+    xsequence: 序列号
+    xupdateTime: 更新时间
+    xdistributeFactor: 分配因子
+    xalias: 别名
+    xcategory: 分类
+    xdata: 数据
+    xdescription: 描述
+    xicon: 图标
+    xmobileData: 移动数据
+    xname: 名称
+    xoutline: 概要
+    xnum: 数量 

@@ -1,0 +1,124 @@
+#pragma once
+#ifndef _EMBED_DO_
+#define _EMBED_DO_
+#include "../DoInclude.h"
+
+class EmbedDO {
+	CC_SYNTHESIZE(string, xid, Xid);
+	CC_SYNTHESIZE(string, xcreateTime, XcreateTime);
+	CC_SYNTHESIZE(string, xsequence, Xsequence);
+	CC_SYNTHESIZE(string, xupdateTime, XupdateTime);
+	CC_SYNTHESIZE(int, xdistributeFactor, XdistributeFactor);
+	CC_SYNTHESIZE(string, xafterArriveScript, XafterArriveScript);
+	CC_SYNTHESIZE(string, xafterArriveScriptText, XafterArriveScriptText);
+	CC_SYNTHESIZE(string, xafterExecuteScript, XafterExecuteScript);
+	CC_SYNTHESIZE(string, xafterExecuteScriptText, XafterExecuteScriptText);
+	CC_SYNTHESIZE(string, xafterInquireScript, XafterInquireScript);
+	CC_SYNTHESIZE(string, xafterInquireScriptText, XafterInquireScriptText);
+	CC_SYNTHESIZE(string, xalias, Xalias);
+	CC_SYNTHESIZE(bool, xallowReroute, XallowReroute);
+	CC_SYNTHESIZE(bool, xallowRerouteTo, XallowRerouteTo);
+	CC_SYNTHESIZE(string, xbeforeArriveScript, XbeforeArriveScript);
+	CC_SYNTHESIZE(string, xbeforeArriveScriptText, XbeforeArriveScriptText);
+	CC_SYNTHESIZE(string, xbeforeExecuteScript, XbeforeExecuteScript);
+	CC_SYNTHESIZE(string, xbeforeExecuteScriptText, XbeforeExecuteScriptText);
+	CC_SYNTHESIZE(string, xbeforeInquireScript, XbeforeInquireScript);
+	CC_SYNTHESIZE(string, xbeforeInquireScriptText, XbeforeInquireScriptText);
+	CC_SYNTHESIZE(string, xdescription, Xdescription);
+	CC_SYNTHESIZE(string, xdisplayLogScript, XdisplayLogScript);
+	CC_SYNTHESIZE(string, xdisplayLogScriptText, XdisplayLogScriptText);
+	CC_SYNTHESIZE(string, xedition, Xedition);
+	CC_SYNTHESIZE(string, xembedCreatorType, XembedCreatorType);
+	CC_SYNTHESIZE(string, xextension, Xextension);
+	CC_SYNTHESIZE(string, xform, Xform);
+	CC_SYNTHESIZE(string, xgroup, Xgroup);
+	CC_SYNTHESIZE(bool, xinheritAttachment, XinheritAttachment);
+	CC_SYNTHESIZE(bool, xinheritData, XinheritData);
+	CC_SYNTHESIZE(string, xname, Xname);
+	CC_SYNTHESIZE(string, xopinionGroup, XopinionGroup);
+	CC_SYNTHESIZE(string, xposition, Xposition);
+	CC_SYNTHESIZE(string, xprocess, Xprocess);
+	CC_SYNTHESIZE(string, xproperties, Xproperties);
+	CC_SYNTHESIZE(string, xreadDuty, XreadDuty);
+	CC_SYNTHESIZE(string, xreadScript, XreadScript);
+	CC_SYNTHESIZE(string, xreadScriptText, XreadScriptText);
+	CC_SYNTHESIZE(string, xreviewDuty, XreviewDuty);
+	CC_SYNTHESIZE(string, xreviewScript, XreviewScript);
+	CC_SYNTHESIZE(string, xreviewScriptText, XreviewScriptText);
+	CC_SYNTHESIZE(string, xroute, Xroute);
+	CC_SYNTHESIZE(string, xtargetApplication, XtargetApplication);
+	CC_SYNTHESIZE(string, xtargetApplicationAlias, XtargetApplicationAlias);
+	CC_SYNTHESIZE(string, xtargetApplicationName, XtargetApplicationName);
+	CC_SYNTHESIZE(string, xtargetAssginDataScript, XtargetAssginDataScript);
+	CC_SYNTHESIZE(string, xtargetAssginDataScriptText, XtargetAssginDataScriptText);
+	CC_SYNTHESIZE(string, xtargetIdentity, XtargetIdentity);
+	CC_SYNTHESIZE(string, xtargetIdentityScript, XtargetIdentityScript);
+	CC_SYNTHESIZE(string, xtargetIdentityScriptText, XtargetIdentityScriptText);
+	CC_SYNTHESIZE(string, xtargetProcess, XtargetProcess);
+	CC_SYNTHESIZE(string, xtargetProcessAlias, XtargetProcessAlias);
+	CC_SYNTHESIZE(string, xtargetProcessName, XtargetProcessName);
+	CC_SYNTHESIZE(string, xtargetTitleScript, XtargetTitleScript);
+	CC_SYNTHESIZE(string, xtargetTitleScriptText, XtargetTitleScriptText);
+	CC_SYNTHESIZE(bool, xwaitUntilCompleted, XwaitUntilCompleted);
+public:
+	EmbedDO() {
+		this->xid = "";
+		this->xcreateTime = "";
+		this->xsequence = "";
+		this->xupdateTime = "";
+		this->xdistributeFactor = 0;
+		this->xafterArriveScript = "";
+		this->xafterArriveScriptText = "";
+		this->xafterExecuteScript = "";
+		this->xafterExecuteScriptText = "";
+		this->xafterInquireScript = "";
+		this->xafterInquireScriptText = "";
+		this->xalias = "";
+		this->xallowReroute = false;
+		this->xallowRerouteTo = false;
+		this->xbeforeArriveScript = "";
+		this->xbeforeArriveScriptText = "";
+		this->xbeforeExecuteScript = "";
+		this->xbeforeExecuteScriptText = "";
+		this->xbeforeInquireScript = "";
+		this->xbeforeInquireScriptText = "";
+		this->xdescription = "";
+		this->xdisplayLogScript = "";
+		this->xdisplayLogScriptText = "";
+		this->xedition = "";
+		this->xembedCreatorType = "";
+		this->xextension = "";
+		this->xform = "";
+		this->xgroup = "";
+		this->xinheritAttachment = false;
+		this->xinheritData = false;
+		this->xname = "";
+		this->xopinionGroup = "";
+		this->xposition = "";
+		this->xprocess = "";
+		this->xproperties = "";
+		this->xreadDuty = "";
+		this->xreadScript = "";
+		this->xreadScriptText = "";
+		this->xreviewDuty = "";
+		this->xreviewScript = "";
+		this->xreviewScriptText = "";
+		this->xroute = "";
+		this->xtargetApplication = "";
+		this->xtargetApplicationAlias = "";
+		this->xtargetApplicationName = "";
+		this->xtargetAssginDataScript = "";
+		this->xtargetAssginDataScriptText = "";
+		this->xtargetIdentity = "";
+		this->xtargetIdentityScript = "";
+		this->xtargetIdentityScriptText = "";
+		this->xtargetProcess = "";
+		this->xtargetProcessAlias = "";
+		this->xtargetProcessName = "";
+		this->xtargetTitleScript = "";
+		this->xtargetTitleScriptText = "";
+		this->xwaitUntilCompleted = false;
+		}
+};
+
+#endif // !_EMBED_DO_

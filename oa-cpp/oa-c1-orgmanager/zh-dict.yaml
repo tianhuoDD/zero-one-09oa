@@ -1,0 +1,185 @@
+# queryOrgMembers(获取组织成员分页)
+queryOrgMembers:
+    orgmembers: 获取组织成员(分页)
+    pageIndex: 页码
+    pageSize: 页面大小
+    xunique: 需要查询的组织
+
+queryOrgStaff:
+    orgmembers: 
+        members: 获取人员名称列表 (条件 + 分页)
+        pageIndex: 页码
+        pageSize: 页面大小
+        xmobile: 通过电话号码查询
+        xstatus: 状态
+        Pinyin: 通过拼音查询
+        xname: 通过姓名查询
+
+orgunit:
+  query-orgunit:
+    summary: "获取组织成员名称树"
+post:
+    createOrg:
+        summary: 创建组织
+        xlevel: 组织等级（必填，很有用）
+        xname: 组织名称（必填-同一层级下要求唯一）
+        xunique: 组织唯一编码（必填-要求唯一）
+        xtypeList: 组织类别
+        xshortName: 组织简称
+        xdescription: 组织描述
+        xcontrollerList: 管理者列表
+        xsuperior: 上级组织（根据<上级组织xid>去找）
+        xorderNumber: 排序值（若不提供则自动生成）
+        xpinyin: 组织名称拼音
+        xpinyinInitial: 组织名称拼音的首字母
+    deleteOrg:
+        summary: 删除组织
+        xid: 要删除的组织xid（必填）
+add:
+    jobmem: 添加职务成员
+    orgmem: 添加组织成员
+
+delete:
+    orgmem: 删除组织成员
+    jobmem: 删除职务成员
+sort:
+    sort_value: 批量排序组织成员
+    sort_res: 拼音排序组织成员    
+    xid: 组织成员的唯一标识符
+    xcreateTime: 组织成员的创建时间
+    xsequence: 组织成员的序列号
+    xupdateTime: 组织成员的更新时间
+    xname: 组织成员的名称
+    xorderNumber: 组织成员的排序编号
+    xpinyin: 组织成员的拼音表示
+    xpinyinInitial: 组织成员名称拼音的首字母
+    xunique: 组织成员的唯一编码
+
+
+organization:
+ query-allname: 
+  summary: 查询所有组织名称（获取组织名称树）
+ field:
+        xid: 组织id
+        xdistinguishedName: 组织唯一编码
+        xname: 组织名称
+        xunique: 组织编码
+        xlevel: 组织层级编号
+        xlevelname: 组织层级名称
+        xshortName: 组织简称
+        xsuperior: 上级组织
+        xorderNumber: 排序值
+        detail: 本组织细节
+        xlevelOrderNumber: 组织层级排序值
+        orgsub: 下属组织
+duty:
+ add:
+  summary: 添加组织职务
+ modify:
+  summary: 修改组织职务
+ field:
+  xid: 职务id(唯一标识符)
+  xcreateTime: 创建时间
+  xsequence: 序列
+  xupdateTime: 更新时间
+  xdistributeFactor: 分布因子
+  xdescription: 职务描述
+  xdistinguishedName: 标识名
+  xname: 职务名称
+  xorderNumber: 排序编号
+  xpinyin: 拼音
+  xxpinyinInitial: 拼音首字母
+  xunique: 唯一标识
+  unit: 单元
+
+org:
+    unitattribute:
+        field:
+            xids: 用于批量删除
+            xid: 组织属性的唯一标识符
+            xcreateTime: 组织属性的创建时间
+            xsequence: 组织属性的序列号
+            xupdateTime: 组织属性的更新时间
+            xdistributeFactor: 分配因子，用于分配规则的组织属性
+            xdescription: 组织属性的详细描述
+            xdistinguishedName: 组织属性的完整名称
+            xname: 组织属性的名称
+            xorderNumber: 组织属性的排序编号
+            xpinyin: 组织属性名称的拼音表示
+            xpinyinInitial: 组织属性名称拼音的首字母
+            xunique: 组织属性的唯一编码
+            xunit: 组织属性的单位名称
+        get:
+            summary: 获取组织属性（分页）
+        delete:
+            summary: 删除组织属性（批量）
+    unit: 
+        xid: 组织id
+        unit_xname: 组织名称
+        xunique: 唯一编码
+        xshortName: 组织简称
+        xdescription: 组织描述
+        xsuperior: 上级组织
+        xorderNumber: 排序值
+        query: 获取组织信息
+        update: 修改组织信息
+  
+        typelist:
+            xtypeList: 组织类别
+
+    person:
+        person_xname: 管理者  
+Attrib:
+    add-all:
+        title: 添加组织属性
+    modify-all:
+        title: 修改组织属性
+orgpos:
+    query-orgpos:
+        summary: 查询组织职务名称树
+
+orgmemtree:
+    query-orgmemtree:
+        summary: 查询组织成员名称树
+orgunitduty:
+  query-orgunitduty:
+    summary: "获取组织职务名称树"
+
+# 组织单位相关字段
+org_unit:
+  field:
+    name: "单位名称"
+    levelname: "层级名称"
+    level: "层级"
+    unique: "唯一标识"
+    members: "成员"
+    subordinates: "下级单位"
+
+# 组织职务相关字段
+org_unitduty:
+  field:
+    xname: "职务名称"
+    xunique: "职务唯一标识"
+    duties: "职务列表"
+    subordinates: "下级职务"
+
+# 身份成员相关字段
+identity_member:
+  field:
+    mam_name: "成员名称"
+    mam_unique: "成员唯一标识"
+Attrib_add:
+     title:
+        add: 添加组织属性
+     message_error:
+        one: 上传数据异常
+        two: id不能为0，请重新输入
+        three: 未找到这个id号，请重新输入
+
+Attrib_modify:
+     title:
+        modify: 修改组织属性
+     message_error:
+        one: 上传数据异常
+        two: id不能为0，请重新输入
+        three: 数据库未找到对应的id和属性

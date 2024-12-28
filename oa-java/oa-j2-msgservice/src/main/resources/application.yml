@@ -1,0 +1,21 @@
+server:
+  port: 10700
+spring:
+  application:
+    name: MSG_SERVICE
+  cloud:
+    stream:
+      rocketmq:
+        binder:
+          name-server: ${rocket-mq.name-server}
+      bindings:
+        input:
+          destination: test-topic
+          content-type: application/json
+          group: socketGroup
+
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.zeroone.star.oaj2msgservice.dto
+
+

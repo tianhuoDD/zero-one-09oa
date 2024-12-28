@@ -1,0 +1,340 @@
+process-configuration:
+ process-types:
+  get:
+   summary: 获取所有流程类型
+  field:
+   application: 所属应用id
+   category: 流程类型
+   contain-nums: 包含数量
+ process-list:
+  get:
+   summary: 获取流程列表（条件+分页）
+  field:
+   application: 所属应用id
+   id: 唯一标识
+   category: 流程类型
+   name: 流程名称
+   alias: 流程别名
+   description: 描述
+   last-update-time: 最后修改日期
+ process-info:
+  get:
+   summary: 获取流程详情
+  field:
+   agent-list: 代理列表
+   begin: 开始
+   cancel-list: 取消列表
+   choice-list: 选择列表
+   delay-list: 延迟列表
+   embed-list: 嵌入列表
+   end-list: 结束列表
+   invoke-list: 调用列表
+   manual-list: 手册列表
+   merger-list: 合并列表
+   route-list: 路由列表
+   parallel-list: 平行列表
+   publish-list: 发布列表
+   service-list: 服务列表
+   split-list: 拆分列表
+   id: 唯一标识
+   name: 流程名称
+   alias: 别名
+   description: 描述
+   creator-person: 创建人
+   last-update-person: 最后修改人
+   last-update-time: 最后修改日期
+   application: 应用
+   controller-list: 控制列表
+   after-begin-script: 开始后脚本
+   after-begin-script-text: 开始后脚本文本
+   after-end-script: 结束后脚本
+   after-end-script-text: 结束后脚本文本
+   startable-identity-list: 可启动的身份列表
+   startable-unit-list: 可启动的单位列表
+   startable-group-list: 可启动的组列表
+   serial-texture: 串行纹理
+   serial-phase: 串行阶段
+   expire-type: 到期类型
+   expire-day: 到期天数
+   expire-hour: 到期时数
+   expire-work-time: 过期工时
+   check-draft: 检查草稿
+   startable-terminal: 起始表终端
+   projection-fully: 完全投影
+   route-name-as-option: 使用路由名称作为缺省意见
+   before-arrive-script: 到达前脚本
+   before-arrive-script-text: 到达前脚本文本
+   after-arrive-script: 到达后脚本
+   after-arrive-script-text: 到达后脚本文本
+   before-execute-script: 执行前脚本
+   before-execute-script-text: 执行前脚本文本
+   after-execute-script: 执行后脚本
+   after-execute-script-text: 执行后脚本文本
+   before-inquire-script: 询问前脚本
+   before-inquire-script-text: 询问前脚本文本
+   after-inquire-script: 询问后脚本
+   after-inquire-script-text: 询问后脚本文本
+   edition: 版号
+   edition-name: 编辑名称
+   edition-enable: 启用编辑
+   edition-number: 编辑次数
+   default-start-mode: 默认启动类型
+   properties: 属性
+   create-time: 创建时间
+   update-time: 更新时间
+   is-new-process: 是新流程
+   projection-data: 投影数据
+   application-name: 应用名称
+   category: 所属分类
+   update-table-enable: 启用更新表
+   data-trace-field-type: 数据跟踪字段类型
+attachedfile:
+ add: 
+  summary: 添加附件
+application:
+ get:
+  summary: 获取全部应用信息
+  applicationCategory: 根据应用类型获取应用信息
+  id: 根据id获取应用信息
+ post:
+  summary: 新增应用信息
+ delete: 
+  summary: 删除应用信息  
+ field:
+  name: 应用名称
+  alias: 应用别名
+  applicationCategory: 应用类型
+  id: ID
+  createTime: 应用创建时间
+  sequence: 创建次序
+  updateTime: 应用更新时间
+  distributeFactor: 权重因子
+  creatorPerson: 应用创建者
+  description: 应用描述
+  icon:	应用图标
+  iconHue: 应用图标色调
+  lastUpdatePerson: 最次更新应用者
+  lastUpdateTime: 最近更新应用时间
+  validated: 是否创建成功
+  count: 应用数量
+  properties: 应用属性
+ app-types:
+  get:
+   summary: 获取所有应用类型
+ app-properties:
+  get:
+   summary: 获取应用属性
+  put:
+   summary: 修改应用属性
+  field:
+   APPLICATION_XID: 应用ID
+   xorderColumn: 序号(0、1、2…)
+   xavailableGroupList: 可用分组
+   xavailableIdentityList: 可用身份
+   xavailableUnitList: 可用组织（部门）
+   xcontrollerList: 管理者
+  tip:
+   xorderColumn_tip: 0、1、2…
+   xavailableIdentityList_tip: 组织成员名称树，综合表→{identity.name}@{top-unit.unique}_{person.unique}@I
+   xavailableUnitList_tip: 组织名称树，org-unit：distinguishedName
+   xcontrollerList_tip: 人员名称树，org-person：distinguishedName
+   xmaintenanceIdentity_tip: 组织成员名称树，org-identity：distinguishedName
+   xmaintenanceIdentity: 流程维护人
+   xdefaultForm_tip: 表单id，pp_e_form：xid
+   xproperties_tip: 花括号，默认表单、流程维护人
+ pp_e_application:
+  field:
+   xid: 应用标识
+   xdefaultForm: 默认表单id
+   xcreateTime: 创建时间
+   xsequence: 应用序列号
+   xupdateTime: 更新时间
+   xdistributeFactor: 权重因子
+   xalias: 应用别名
+   xapplicationCategory: 应用类型
+   xcreatorPerson: 创建人
+   xdescription: 应用描述
+   xicon: 应用图标
+   xiconHue: 应用图标色调
+   xlastUpdatePerson: 最后更新人
+   xlastUpdateTime: 最后更新时间
+   xname: 应用名称
+   xproperties: 应用属性
+dataconfiguration: 
+ datamessage:
+  id: 流程数据配置ID
+  name: 流程数据配置名字
+  alias: 流程数据配置别名
+  create-time: 创建时间
+  update-time: 更新时间
+  application: 数据配置所属应用ID
+  description: 数据配置描述
+  sequence: 流程数据配置序列号
+  distributefactor: 数据配置分配因子 
+ item: 
+  item-id: 表单列ID号
+  type: 表单列类型
+  item-value: 表单列值
+  bundle: 捆绑流程数据配置ID号
+  item-type: object类型检测 
+  item-primitive-type: 表单行原始数据类型
+  item-string-value-type: 表单是否为字符类型数据 
+  number-value: number表单类型值    
+  boolean-value: 表单布尔类型值  
+  item-category: 项目分类
+  date-time-value: 表单时间类型值(带时间)
+  date-value: 表单时间类型值(日期)
+  text: 文本字符值
+  string-long-value: 长字符文本值
+  string-short-value: 短字符文本值
+  time-value: 列时间类型值
+  data: 第1张表单列名
+oprator:   
+ add:  
+  summray: 新增数据配置
+ modify:   
+  summray: 修改数据配置 
+ delete: 
+  summray: 删除数据配置
+  id: 删除数据配置id﻿
+  application: 删除数据配置应用所属id
+ error: 
+  put: 上传参数异常
+process:
+ setting:
+  get:
+   summary: 创建流程信息
+  put:
+   summary: 修改流程信息
+  delete:
+   summary: 删除流程信息
+  field:
+   name: 名称
+   nickname: 别名
+   classfy: 分类
+   describe: 描述
+   icon: 图标
+   application: 应用标识id
+   creatorPerson: 创建人
+   createTime: 创建时间
+   lastUpdatePerson: 更新人
+   lastUpdateTime: 更新时间
+ attachments:
+  getlist:
+   summary: 获取附件列表
+  getdetail: 
+   summary: 获取附件详情
+  field:
+   id: 唯一标识
+   name: 名称
+   alias: 别名
+   description: 描述
+   application: 应用id
+   lastUpdatePerson: 最后更新者
+   lastUpdateTime: 最后更新时间
+   attachmentsinfo: 附件信息
+   fileName: 文件名称
+   length: 文件大小
+   createTime: 创建时间
+   xupdateTime: 最后更新时间
+   uptime: 上传时间
+   picture: 附件图像
+   address: 附件地址
+   url: 资源地址
+   sequence: 序列号
+   distributeFactor: 分配因子
+   data: 数据
+attachment:
+ post: 
+  summary: 添加附件
+ put:
+  summary: 修改附件
+ del:
+  summary: 删除附件
+ field:
+  id: 附件唯一标识
+  name: 名称
+  alias: 别名
+  attachmentInfo: 附件信息
+  attachment: 附件
+  URL: URL
+config:
+ list:
+  get:
+   summary: 获取数据配置列表
+  field:
+   appid: 应用唯一标识符
+   dataid: 数据唯一标识符
+   application: 应用程序id
+   name: 配置项名称
+   alias: 别名
+   description: 描述信息
+   creatTime: 创建时间
+   updateTime: 更新时间
+ detail:
+  get:
+   summary: 获取数据配置详情
+  field:
+   data: 详细信息
+   appid: 应用唯一标识符
+   dataid: 数据唯一标识符
+   application: 应用程序id
+   name: 配置项名称
+   alias: 别名
+   description: 描述信息
+   creatTime: 创建时间
+   updateTime: 更新时间
+form:
+ add:
+  get:
+   summary: 创建表单
+  field:
+   alias: 别名
+   application: 应用标识id
+   data: 包含数据
+   formFieldList: 表单字段列表
+   hasMobile: 是否有移动端
+   icon: 图标
+   id: 唯一标识
+   mobileData: 移动端数据
+   mobileRelatedFormList: 移动端关联表单列表
+   mobileRelatedScriptMap: 移动端关联脚本映射
+   name: 名称
+   relatedFormList: 关联表单列表
+   relatedScriptMap: 关联脚本映射
+   description: 描述
+   category: 分类
+   readOnly: 是否只读
+ modify:
+  get:
+   summary: 修改表单
+ delete:
+  get:
+   summary: 删除表单
+ list:
+  get:
+   summary: 获取表单列表
+ category:
+  get:
+   summary: 获取表单分类及其数量
+  field:
+   number: 数量
+ info:
+  get:
+   summary: 获取表单详情
+ field:
+  xid: 标识
+  xname: 名称
+  xcategory: 分类
+  xdescription: 描述
+  xdata: 数据
+  xupdateTime: 更新时间
+  xapplication: 应用标识id
+  xcreateTime: 创建时间
+  xlastUpdatePerson: 最后一次更新的用户
+  xlastUpdateTime: 最后一次更新的时间
+  xalias: 别名
+  xhasMobile: 是否兼容移动端
+  xmobileData: 移动端数据
+  xproperties: 属性
+  xicon: 图标

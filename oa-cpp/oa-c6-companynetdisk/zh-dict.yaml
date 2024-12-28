@@ -1,0 +1,117 @@
+Myfile:
+ summary:
+  upload: 上传文件
+  delete: 删除文件
+  download: 下载文件
+  replacement: 替换文件
+ send:
+  summary: 发送文件
+  xid: 发送给对应序列号用户
+  col: 用户排序优先级
+ share:
+  summary: 共享文件
+  xid: 共享给对应序列号用户
+  col: 用户排序优先级
+ get:
+  summary_folder: 获取指定目录内容列表（分页）
+  success: 查询成功
+ add:
+  summary_folder: 添加目录
+ delete:
+  summary: 删除目录
+ rename:
+  summary: 重命名目录
+  summary_file: 重命名文件
+ folder:
+  xid: 目录id
+  xsequence: 目录序列号
+  xname: 目录名
+  xtype: 目录类型
+  xlength: 目录大小
+  xperson: 目录所有者
+  xstatus: 目录状态
+  xsuperior: 目录上级目录ID
+  xdistributeFactor: 分发策略
+  xcreateTime: 目录创建时间
+  xupdateTime: 目录更新时间
+  xfileid: 目录下文件id
+  xfileType: 目录下文件类型
+  xfoler: 父目录id
+  xLastUpdatePerson: 上次修改人
+  xLastUpdateTime: 上次修改时间
+  xstorage: 存储容量
+ filed:
+  xname: 文件名
+  xid: 文件id
+  xsequence: 文件序列号
+  xperson: 上传人
+  xcreateTime: 创建时间
+  xupdateTime: 修改时间
+  xcapacity: 容量
+  xdeepPath: 文件深度
+  xextension: 文件扩展名
+  xLastUpdatePerson: 上次修改人
+  xLastUpdateTime: 上次修改时间
+  xlength: 文件大小
+ file:
+  id: 文件id
+  name: 文件名
+  size: 文件大小
+  summary: 获取共享文件列表
+  person: 持有人
+  storage: 容量
+ user:
+  unique: 用户唯一id 
+  name: 用户名字
+  summary: 获取共享用户列表
+  sharename: 分享者名字
+  appointid: 指定用户id
+  shareid: 共享用户id
+myfile:
+ summary:
+  upload: 上传文件
+  delete: 删除文件
+  download: 下载文件
+  replacement: 替换文件
+ filed:
+  xid: id唯一标识
+  xcreateTime: 创建时间
+  xupdateTime: 修改时间
+  xextension: 文件格
+  xfolder: 父文件夹xid
+  lastUpdatePerson: 最后更新人
+  xlastUpdateTime: 最后更新时间
+  xlength: 容量大小
+  xname: 文件名
+  xperson: 上传人
+ Filelog:
+  xid: 日志唯一标识
+  xOperationType: 上传类型
+  xFromPerson: 发起者
+  xToPerson: 接收者
+  xOperationTime: 操作时间
+  file_attachment_id: 操作文件的唯一标识
+accept:
+ file:
+  id: 文件id
+  name: 文件名
+  size: 文件大小
+  summary: 文件列表
+  unload: 文件上传时间
+  changed: 文件最近修改时间
+  upload: 上传人
+  share: 分享
+  send: 发送
+ user:
+  id: 用户唯一id 
+  name: 用户名字
+  summary: 用户列表
+  nickname: 昵称
+
+tital:
+ acceptfile: 获取接收文件列表
+ acceptuser: 获取接收用戶列表
+
+file:
+ upload:
+  summary: 摩羯阿婆

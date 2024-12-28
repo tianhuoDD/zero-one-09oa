@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.settings.mapper.OrgPersonMapper">
+
+    <update id="updatePersonInfo">
+        update org_person
+        <set>
+        <if test="officePhone != null">xofficePhone=#{officePhone},</if>
+        <if test="nickname != null">xnickName=#{nickname},</if>
+        <if test="qq != null">xqq=#{qq},</if>
+        <if test="signature != null">xsignature=#{signature},</if>
+        <if test="weixin != null">xweixin = #{weixin},</if>
+        <if test="language != null">xlanguage = #{language},</if>
+        </set>
+        where xid=#{id}
+    </update>
+</mapper>

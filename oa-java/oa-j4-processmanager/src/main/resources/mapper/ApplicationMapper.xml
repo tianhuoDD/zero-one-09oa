@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.procmanager.mapper.ApplicationMapper">
+    <!--插入应用-->
+    <insert id="insertApplication">
+        insert into pp_e_application
+            (xid, xcreateTime, xsequence, xupdateTime, xdistributeFactor, xalias,
+             xapplicationCategory, xcreatorPerson, xdescription, xicon, xiconHue,
+             xlastUpdatePerson, xlastUpdateTime, xname, xproperties)
+        VALUES (#{xid}, #{xcreateTime}, #{xsequence}, #{xupdateTime}, #{xdistributeFactor}, #{xalias},
+                #{xapplicationCategory}, #{xcreatorPerson}, #{xdescription}, #{xicon}, #{xiconHue},
+                #{xlastUpdatePerson}, #{xlastUpdateTime}, #{xname}, #{xproperties})
+    </insert>
+<!--根据id，可用组织列表和最大的order值插入可用组织-->
+    <insert id="insertAvailableIdentityUnit" parameterType="map">
+        INSERT INTO pp_e_application_availableunitlist (APPLICATION_XID, xavailableUnitList, xorderColumn)
+        VALUES
+        <foreach collection="availableUnit" item="unit" index="index" separator=",">
+            (#{xid}, #{unit}, #{startOrder} + #{index} + 1)
+        </foreach>
+    </insert>
+<!--    根据id，管理者列表和最大的order值插入管理者-->
+    <insert id="insertController">
+        insert into pp_e_application_controllerlist(APPLICATION_XID, xcontrollerList,xorderColumn)
+        VALUES
+         <foreach collection="controllers" item="controller" index="index" separator=",">
+            (#{xid},#{controller},#{startOrder} + #{index} + 1)
+         </foreach>
+    </insert>
+<!--    根据id，可用身份列表和最大的order值插入可用身份-->
+    <insert id="insertIdentities">
+        insert into pp_e_application_availableidentitylist(APPLICATION_XID, xavailableIdentityList,xorderColumn)
+        values
+        <foreach collection="availableIdentities" item="identity" separator="," index="index">
+            (#{xid},#{identity},#{startOrder} + #{index} + 1)
+        </foreach>
+    </insert>
+<!--    更新应用基本属性-->
+    <update id="updateApplication">
+        update pp_e_application set xalias = #{xalias} , xUpdateTime = #{xupdateTime},xicon = #{xicon},
+                                    xdescription = #{xdescription},xlastUpdateTime = #{xlastUpdateTime},
+                                    xname = #{xname}, xproperties = #{xproperties},xapplicationCategory = #{xapplicationCategory},
+                                    xlastUpdatePerson = #{xlastUpdatePerson}
+                                where xid = #{xid}
+    </update>
+<!--    根据id删除应用-->
+    <delete id="deleteById">
+        delete from pp_e_application where xid = #{xid}
+    </delete>
+<!--    根据id删除对应可用组织-->
+    <delete id="deleteAvailableIdentityUnitById">
+        delete from pp_e_application_availableunitlist where APPLICATION_XID = #{xid}
+    </delete>
+<!--    根据id删除对应管理者-->
+    <delete id="deleteControllerById">
+        delete from pp_e_application_controllerlist where APPLICATION_XID = #{xid}
+    </delete>
+<!--    根据id删除对应可用身份-->
+    <delete id="deleteIdentityById">
+        delete from pp_e_application_availableidentitylist where APPLICATION_XID = #{xid}
+    </delete>
+    <!--根据xid查询应用信息-->
+    <select id="selectById" resultType="com.zeroone.star.procmanager.entity.PpEApplication">
+        select * from pp_e_application where xid = #{xid}
+    </select>
+<!--查询所有组织-->
+    <select id="selectAllUnit" resultType="com.zeroone.star.procmanager.entity.OrgUnit">
+        select * from org_unit
+    </select>
+<!--    根据组织id查询人员id-->
+    <select id="selectPersonIdByUnitId" resultType="java.lang.String">
+        select xperson from org_identity where xunit = #{xid}
+    </select>
+<!--    根据id查找人员-->
+    <select id="selectPersonById" resultType="com.zeroone.star.procmanager.entity.OrgPerson">
+        select * from org_person where xid = #{id}
+    </select>
+<!--    根据id查找所有可用组织-->
+    <select id="selectAvailableUnitsById" resultType="java.lang.String">
+        select xavailableUnitList from pp_e_application_availableunitlist where APPLICATION_XID = #{xid}
+    </select>
+<!--    根据id查找所有管理者-->
+    <select id="selectControllersById" resultType="java.lang.String">
+        select xcontrollerList from pp_e_application_controllerlist where APPLICATION_XID = #{xid}
+    </select>
+<!--    根据id查找可用身份-->
+    <select id="selectIdentitiesById" resultType="java.lang.String">
+        select xavailableIdentityList from pp_e_application_availableidentitylist where APPLICATION_XID = #{xid}
+    </select>
+<!--    获得最大的xorderColumn的值-->
+    <select id="getMaxUtilOrderColumn" resultType="java.lang.Integer">
+        SELECT COALESCE(MAX(xorderColumn), -1)
+        FROM pp_e_application_availableunitlist
+        WHERE APPLICATION_XID = #{xid}
+    </select>
+<!--    获得最大的xorderColumn的值-->
+    <select id="getMaxControllerOrderColumn" resultType="java.lang.Integer">
+        SELECT COALESCE(MAX(xorderColumn), -1)
+        FROM pp_e_application_controllerlist
+        WHERE APPLICATION_XID = #{xid}
+    </select>
+<!--    获得最大的xorderColumn的值-->
+    <select id="getMaxIdentityOrderColumn" resultType="java.lang.Integer">
+        SELECT COALESCE(MAX(xorderColumn), -1)
+        FROM pp_e_application_availableidentitylist
+        WHERE APPLICATION_XID = #{xid}
+    </select>
+    <select id="selectUnitsByAppId" resultType="java.lang.String">
+        select * from pp_e_application_availableunitlist where APPLICATION_XID = #{xid}
+    </select>
+    <select id="selectAllUnitByKeywords" resultType="com.zeroone.star.procmanager.entity.OrgUnit">
+        SELECT * FROM org_unit
+        <where>
+            <if test="keywords != null and keywords.trim() != ''">
+                xname LIKE CONCAT('%', #{keywords}, '%')
+            </if>
+        </where>
+    </select>
+
+
+    <!--application映射-->
+    <resultMap id="applicationMap" type="com.zeroone.star.project.vo.j4.procmanager.application.manage.ApplicationVo">
+        <id property="id" column="xid"></id>
+        <result property="icon" column="xicon"></result>
+        <result property="name" column="xname"></result>
+        <result property="description" column="xdescription"></result>
+        <result property="category" column="xapplicationCategory"></result>
+        <collection property="formList" column="xid" select="com.zeroone.star.procmanager.mapper.FormMapper.selectNameById"></collection>
+        <collection property="processList" column="xid" select="com.zeroone.star.procmanager.mapper.ProcessMapper.selectNameById"></collection>
+    </resultMap>
+    <!--可用身份映射-->
+    <resultMap id="identityMap" type="com.zeroone.star.project.vo.j4.procmanager.application.manage.IdentityVo">
+        <result property="availableIdentity" column="availableIdentity"></result>
+        <result property="availableIdentityUnit" column="availableIdentityUnit"></result>
+    </resultMap>
+    <!--可用组织映射-->
+    <resultMap id="unitMap" type="com.zeroone.star.project.vo.j4.procmanager.application.manage.UnitVo">
+        <result property="availableUnit" column="xname"></result>
+        <result property="availableUnitLevelName" column="xlevelName"></result>
+    </resultMap>
+    <!--application属性映射-->
+    <resultMap id="applicationPropertiesMap" type="com.zeroone.star.project.vo.j4.procmanager.application.manage.ApplicationPropertiesVo">
+        <id property="id" column="xid"></id>
+        <result property="name" column="xname"></result>
+        <result property="alias" column="xalias"></result>
+        <result property="category" column="xapplicationCategory"></result>
+        <result property="description" column="xdescription"></result>
+        <result property="icon" column="xicon"></result>
+        <result property="propertiesVo" column="xproperties" jdbcType="VARCHAR" javaType="com.zeroone.star.project.vo.j4.procmanager.application.manage.PropertiesVo" typeHandler="com.baomidou.mybatisplus.extension.handlers.FastjsonTypeHandler"></result>
+        <collection property="identityVo" column="xid" select="com.zeroone.star.procmanager.mapper.ApplicationMapper.selectApplicationIdentityListById"></collection>
+        <collection property="unitVoList" column="xid" select="com.zeroone.star.procmanager.mapper.ApplicationMapper.selectApplicationUnitListById"></collection>
+        <collection property="controller" column="xid" select="com.zeroone.star.procmanager.mapper.ApplicationMapper.selectApplicationControllerListById"></collection>
+    </resultMap>
+    <!--查询所有应用-->
+    <select id="selectApplication" parameterType="com.zeroone.star.project.query.j4.procmanager.application.manage.ApplicationQuery" resultMap="applicationMap">
+        SELECT
+            xid,
+            xname,
+            xicon,
+            xdescription,
+            xapplicationCategory
+        FROM
+            pp_e_application
+        <where>
+            <if test="null != query.category and query.category != ''">
+                AND xapplicationCategory = #{query.category}
+            </if>
+            <if test="null != query.keyword and query.keyword != ''">
+                AND xdescription LIKE CONCAT('%',#{query.keyword},'%')
+            </if>
+        </where>
+    </select>
+    <select id="selectAllById" resultMap="applicationPropertiesMap">
+
+    </select>
+    <!--获取指定应用的属性-->
+    <select id="selectApplicationById" parameterType="java.lang.String" resultMap="applicationPropertiesMap">
+        SELECT
+            xid,
+            xname,
+            xalias,
+            xapplicationCategory,
+            xdescription,
+            xicon,
+            xproperties
+        FROM
+            pp_e_application
+        WHERE
+            xid = #{xid}
+    </select>
+    <!--查询应用可用身份及组织-->
+    <select id="selectApplicationIdentityListById" parameterType="java.lang.String" resultMap="identityMap">
+        SELECT
+            i.xname availableIdentity,
+	        u.xname availableIdentityUnit
+        FROM
+            pp_e_application a,
+            org_identity i,
+            pp_e_application_availableidentitylist ai,
+            org_unit u
+        WHERE
+            a.xid = ai.APPLICATION_XID AND i.xdistinguishedName = ai.xavailableIdentityList
+          AND
+            u.xid = i.xunit
+          AND
+            a.xid = #{APPLICATION_XID}
+    </select>
+    <!--查询应用可用组织及组织树-->
+    <select id="selectApplicationUnitListById" parameterType="java.lang.String"  resultMap="unitMap">
+        SELECT
+            u.xname,
+            u.xlevelName
+        FROM
+            pp_e_application a,
+            org_unit u,
+            pp_e_application_availableunitlist au
+        WHERE
+            a.xid = au.APPLICATION_XID AND u.xdistinguishedName = au.xavailableUnitList
+          AND
+            a.xid = #{APPLICATION_XID}
+    </select>
+    <!--查询应用管理者-->
+    <select id="selectApplicationControllerListById" parameterType="java.lang.String"  resultType="java.lang.String">
+        SELECT
+            p.xname
+        FROM
+            pp_e_application a,
+            org_person p,
+            pp_e_application_controllerlist ap
+        WHERE
+            a.xid = ap.APPLICATION_XID AND p.xdistinguishedName = ap.xcontrollerList
+          AND
+            a.xid = #{APPLICATION_XID}
+    </select>
+</mapper>

@@ -1,0 +1,83 @@
+addroleDTO:
+  field:
+    id: 编号
+    name: 角色名称
+    key: 唯一编码
+    refer: 角色描述
+    startTime: 角色创建于
+    endTime: 最后修改于
+    fullName: 角色的全称为
+  information: 获取角色信息
+
+  del: 删除角色
+
+  post:
+    summary: 增加角色     
+role:
+ get:
+  namelist:
+   summary: 获取角色名称列表
+  roleResource:
+   summary: 获取角色分配资源
+ put:
+  adddelgroupmember:
+   summary: 增删群组成员
+  modifyAssignmentResource:
+   summary: 修改角色分配资源
+ field:
+  menuList: 菜单id列表
+  idList: 群组成员唯一标识列表
+  roleId: 角色唯一标识
+  roleResourceTree: 角色分配资源树
+  resourceName: 资源名称
+  icon: 图标
+  href: 路由
+  childResource: 子资源
+
+rolelist:
+  get:
+   summary: 获取角色名称列表
+  field: 
+   words: 关键字
+   id: 编号
+   name: 名称
+PersonMember:
+ get:
+  summary: 获取群组成员
+ put: 
+  summary: 增加个人信息
+ post:
+  summary: 修改个人成员
+ delete:
+  summary: 删除个人信息
+ field:   
+  ROLE_XID: 角色id
+  xpersonList: 群组id
+  xorderColumn: 角色顺序
+  xname: 群组名称
+  xdescription: 群组描述
+  xdistinguishedName: 群组全称
+
+
+modifyrole:
+ summary: 修改角色信息
+ 
+querypersonlist:
+ summary: 查询角色的成员列表
+ unique: 角色唯一编码  
+
+  
+addrole:
+  put:
+    name: 角色名称
+    unique: 唯一编码
+    desc: 描述 
+  field:
+    id: 编号
+    name: 角色名称
+    key: 唯一编码
+    refer: 角色描述
+  information: 获取角色信息
+  del: 删除角色
+  post:
+    summary: 增加角色  

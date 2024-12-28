@@ -1,0 +1,114 @@
+login:
+ post:
+  summary: 保存登陆配置
+ base:
+  field:
+   image: 启用图片验证码登录
+   text: 启用短信验证码登录
+   dbcase: 启用双因素认证登录
+   QRCode: 启用扫描二维码登录
+   atlogin: 启用自助注册
+   doorlogin: 使用门户页面登录
+   doorpage: 使用门户页面作为系统首页
+ more:
+  field:
+   off: 启用安全注销
+   times: 登陆错误次数上限
+   time: 登陆错误锁定时长
+   pctime: pc端登陆有效时长
+   apptime: app端登录有效时长
+   token: token名称
+   code: 启用超级管理员口令
+   HttpOnly: 启用Cookie HttpOnly
+   Secure: 启用Cookie Secure
+ Ldap:
+  field:
+   ldap: 启用ldap认证
+   address: Ldap地址
+   BaseDN: LDAP查询根
+   nature: 认证用户绑定属性
+   user: 绑定管理用户
+   password: 管理用户密码
+
+test:
+ get:
+  summary: 测试查询
+
+password:
+ admin:
+  get:
+   summary: 获取管理员密码设置
+  put:
+   summary: 保存管理员密码设置
+  field:
+   xid: 数据唯一标识
+   xoldpassword: 旧密码
+   xnewpassword: 新密码
+   xconfirmpassword: 确认密码
+   xname: 姓名
+   xnumber: 工号
+   xchangePasswordTime: 修改密码日期
+   xpasswordExpiredTime: 最近登录日期
+
+safety:
+ personpassword:
+  get:
+   summary: 获取用户密码设置
+  put:
+   summary: 保存用户密码设置
+  field:
+   id: 用户名唯一标识
+   password: 账户的新密码
+   datetime: 日期时间
+   oldpassword: 旧密码
+   password2: 第二次输入密码
+
+Login:
+ Basic_configuration:
+  login_config: 登录配置    
+  enable_image_verification_codes: 开启图片验证码
+  enable_SMS_verification_codes: 开始短信验证码
+  enable_Two_factor_authentication: 启用双因素认证
+  enable_scan_QR_code: 启用扫描二维码
+  enable_auto_enrollment: 启用自助注册
+  enable_portal_page: 使用门户页面登录
+  enable_portal_page_as_the_home_of_the_system: 门户页面作为系统首页
+
+
+userloginconfiguration:
+ get:
+  summary: 获取登陆配置
+ put:
+  summary: 保存登录配置
+ field:
+  id: 用户编号
+  username: 用户名
+  password: 密码
+  lastlogintime: 上一次登陆时间
+  emaileaddress: 绑定邮箱
+  mobilephone: 绑定手机号
+  loginattempts: 尝试登录次数
+  permission: 权限
+  ipaddress: 登陆IP
+
+sys:
+  setting:
+    put:
+      user_password: 保存用户密码设置
+    field:
+      init_password_description: 新创建用户的初始密码
+      init_password_value: 用户初始密码
+      password_expiry_days_description: 密码过期天数描述
+      edit_password_expiry_days: 编辑密码过期天数
+      password_complexity: 密码复杂度设置
+      password_min_length: 密码长度最小值
+      password_max_length: 密码长度最大值
+      password_rule_lowercase: 密码规则 - 小写字母
+      password_rule_number: 密码规则 - 数字
+      password_rule_uppercase: 密码规则 - 大写字母
+      password_rule_special_character: 密码规则 - 特殊字符
+      password_rule_enabled: 是否启用
+      password_encryption_description: 密码加密传输描述
+      password_encryption_status: 密码加密传输开关状态
+      password_force_change_description: 密码强制修改描述
+      password_force_change_status: 密码强制修改开关状态

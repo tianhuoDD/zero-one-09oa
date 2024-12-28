@@ -1,0 +1,9 @@
+server:
+  port: ${sp.bizcenter}
+spring:
+  application:
+    name: ${sn.bizcenter}
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false

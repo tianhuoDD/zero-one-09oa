@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.login.mapper.MenuMapper">
+
+
+    <select id="selectByRoleName" resultType="com.zeroone.star.login.entity.Menu">
+        SELECT om.menu_id menuId, om.menu_name menuName, om.menu_type menuType, om.is_button isButton, om.parent_id parentId, om.permission permission, om.status status, om.level level, om.icon, om.link_url linkUrl FROM org_menu om
+        WHERE om.menu_id IN (SELECT orm.menuList FROM  org_role_menulist orm
+                             WHERE orm.role_id = (SELECT ore.xid FROM org_role ore WHERE ore.xname = 'GroupManager'))
+    </select>
+    <select id="getChild" resultType="com.zeroone.star.login.entity.Menu">
+        SELECT om.menu_id menuId, om.menu_name menuName, om.menu_type menuType, om.is_button isButton, om.parent_id parentId, om.permission permission, om.status status, om.level level, om.icon, om.link_url linkUrl
+        FROM org_menu om
+        WHERE 1=1
+        <if test="parentIds != null and parentIds.size > 0">
+            AND om.parent_id in
+            <foreach collection="parentIds" item="item" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+    </select>
+</mapper>

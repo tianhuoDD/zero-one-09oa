@@ -1,0 +1,311 @@
+﻿meetingroom:
+  title: 会议室
+  id: 会议室id
+  titlemodify: 会议室修改
+  titledelete: 会议室删除
+  save: 保存
+  roomdelete: 删除
+  close: 关闭
+  name: 会议室名称
+  location: 会议室位置
+  floor: 会议室楼层
+  capacity: 容纳人数
+  housenumber: 会议室门牌
+  extnumber: 分机号
+  device: 会议室设备
+  status: 会议室状态
+  device1: 投影仪
+  device2: 白板
+  cevice3: 电视
+  device4: 视频会议
+  device5: 摄像头
+  device6: 网络
+  device7: 电话会议
+test:
+ get:
+  summary: 测试查询
+room:
+ setting: 
+  get:
+   summary: 获取会议室信息
+  delete:
+   summary: 删除会议室位置信息
+  put: 
+   summary: 修改会议室位置信息
+  filed:
+   xid: 数据唯一标识
+   xname: 会议室名称
+   location: 会议室位置
+   floor: 会议室楼层
+   pnum: 容纳人数
+   rnum: 会议室门牌
+   num: 分机号
+   device: 会议室设备
+   status: 会议室状态
+building:
+   xid: 数据唯一标识
+   xname: 会议室位置
+   xpinyinintial: 拼音极简
+   xpinyin: 拼音
+meeting-manager:
+    resultStatus:
+        startTimeGreaterCompletedTime: 会议开始时间不得大于或等于开始时间
+        emptySubject: 会议标题不得为空
+        emptyMemberList: 参会人员不得为空
+        emptyHostUnit: 主持部门不得为空
+        emptyHostPerson: 主持人不得为空
+        errorOperation: 操作异常
+    modifyMeeting:
+        info: 修改会议
+    meeting-info:
+        QRcode: 会议签到二维码
+        query: 查询会议详细
+        to: 至
+        applicant: 申请人
+        type: 会议类型
+        date: 日期
+        document: 附件列表
+        pinyin: 拼音
+        pinyinInitial: 拼音首字母
+        time: 时间
+        room: 会议室
+        hostPerson: 主持人
+        hostUnit: 承办部门
+        inviteMemberList: 参会成员列表
+        acceptPersonList: 接受的参会人员列表
+        checkInPersonList: 签到人员列表
+        rejectPersonList: 拒绝参会的人员
+        invitePersonList: 参会人员列表
+        subject: 会议标题
+        summary: 会议描述
+        createTime: 创建时间
+        updateTime: 更新时间  
+        meetingId: 会议唯一标识
+        room-info:
+            device: 设备
+            roomId: 会议室id
+            roomName: 会议室名称
+            buildId: 会议室位置id
+            available: 是否可用
+            capacity: 可容纳人数
+            floor: 楼层
+            roomNumber: 会议室门牌
+            phoneNumber: 分机号
+            buildName: 会议室位置名称
+            roomList: 会议室位置具体的会议室
+        attachment: 
+            description: 会议附件
+            id: 文件唯一标识
+            name: 文件名称
+            meeting: 文件所属的会议的唯一标识符
+            lastUpdateTime: 最后修改时间
+            lastUpdatePerson: 最后修改人
+            deepPath: 深层路径
+            storage: 文件存储标识
+            summary: 文件描述
+            extension: 文件拓展名
+            encryptKey: 文件加密密钥
+            length: 文件大小
+meeting:
+  field:
+    id: 会议ID
+    meetingtype: 会议类型
+    startTime: 会议开始时间
+    completedTime: 会议结束时间
+    date: 会议日期
+    time: 会议时间
+    room: 会议室
+    hostunit: 主办单位
+    participants: 参与者
+    subject: 主题
+    summary: 描述
+    hostperson: 主持人
+    sequence: 序号
+  post:
+    summary: 会议签到
+  file:
+   upload: 
+     summary: 会议文件上传
+   field:
+     xid: 文件编号
+     xcreateTime: 文件创建时间
+     xsequence: 序列号
+     xupdateTime: 文件更新时间
+     xdeepPath: 文件所在深度
+     xextension: 文件扩展名，如.pdf
+     xlastUpdatePerson: 最后执行更新文件的用户
+     xlastUpdateTime: 文件最近更新时间
+     xlength: 文件大小
+     xmeeting: 会议ID
+     xname: 文件名
+     xstorage: 文件存储路径
+     isSummary: 是否是会议摘要
+
+user:
+ field:
+  name: 用户名
+  order: 排序号
+
+
+
+jvo:
+ create:
+  success: 会议创建成功
+  fail: 会议创建失败
+ cancel:
+  success: 会议取消成功
+  fail: 会议取消失败
+  sql:
+   fail: 数据库操作失败，无法取消会议
+ meetingtime:
+  fail: 会议时间错误,请检查会议时间是否冲突或格式是否错误  
+
+
+mtroom:
+ add:
+  summary: 新增会议室位置
+ get:
+  summary: 获取会议室位置列表
+  xid : 会议室id
+  xname: 会议室位置
+  xaddress : 会议室地址
+  xpinyin : 拼音
+  xpinyinInitial : 拼音初始化
+  xcreateTime : 创建时间
+  xupdateTime : 更新时间
+ field:
+  xname: 会议室位置
+
+meetingmanager:
+ get:
+  summary: 会议室选择列表
+ post:
+  summary: 增加会议室记录
+ put:
+  summary: 修改会议室记录
+ delete:
+  summary: 删除会议室记录
+ query-one:
+  summary: 使用声明式服务查询一条数据
+ query-all:
+  summary: 使用声明式服务查询多条数据
+ field:
+  locationId: 会议室位置编号
+  locationName: 会议室位置名称
+  meetingRoomId: 会议室编号
+  meetingRoomName: 会议室名称
+  location: 会议室位置
+  scheduledDateTime: 预定日期时间
+  durationHours: 持续时间（小时）
+  durationMinutes: 持续时间（分钟）
+  page: 当前页码
+  pageSize: 每页大小
+  totalRecords: 总记录数
+  totalPages: 总页数
+  items: 存储列表
+  meetingRooms: 会议室列表
+
+orgmanager:
+ meetingselect:
+  get:
+   summary: 获取会议列表
+  post:
+   summary: 增加会议室记录
+  put:
+   summary: 修改会议室记录
+  delete:
+   summary: 删除会议室记录
+  query-one:
+   summary: 使用声明式服务查询一条数据
+  query-all:
+   summary: 使用声明式服务查询多条数据
+  field:
+   id: 会议
+   applicant: 申请人
+   date: 日期
+   time: 时间
+   title: 会议标题
+   meetingRoom: 会议室
+   month: 会议月份
+   page: 当前页码
+   pageSize: 每页大小
+   totalRecords: 总记录数
+   totalPages: 总页数
+   status: 会议状态类型（例如：未开始、进行中、已结束、已拒绝）
+   type: 类型
+
+
+
+
+query:
+ metting:
+  mettingList:
+   id: 用户标识
+   name: 用户名
+   invite: 会议邀请
+   time: 查询会议时间状态未开始1进行中2已结束3
+   reject: 是否拒绝会议
+   mettingtype: 会议类型
+   mettingstatus: 会议状态
+   applyname: 申请人
+   date: 日期
+   timestart: 开始时间
+   timeend: 结束时间
+   title: 标题
+   mettingroom: 会议室
+des:
+ metting:
+  title1: 请求会议列表
+  status: 会议状态
+  type: 会议类型
+  id: 用户唯一标识
+metting1:
+ mettingCreate:
+  name: 申请人名称
+  mettingtype: 会议类型
+  date: 会议日期
+  timestart: 会议开始时间
+  timeend: 会议结束时间
+  mettingroom: 会议室
+  mettingtitle: 会议标题
+  members: 参会成员
+  hoster: 会议主持人
+  department: 参会部门
+  description: 参会描述
+ mettingcreate:
+  query:
+   room: 会议室
+   hoster: 主持人
+   depart: 参会部门
+   member: 参会成员
+   identify: 参会成员身份
+ cquery:
+  room: 查询会议室
+  hoster: 查询主持人
+  department: 查询承办部门
+  member: 参会人员
+  identify: 人员身份或所属组织
+  name: 人员名称
+  cmetting: 创建会议
+metting:
+ name: 会议室名称
+ build: 会议室位置
+ floor: 会议室楼层
+ capacity: 会议室容纳人数
+ roomnumber: 会议室门牌号
+ dis: 分机号
+ device: 会议室设备
+ available: 会议室状态
+ addnew: 新增会议室
+ id: id
+ meeting: 会议
+mettingroom:
+ date: 查询时间
+ time: 会议持续时间前两位表示小时后两位表示分钟
+ build: 会议室位置
+ query: 查询会议室列表
+
+
+
+
+

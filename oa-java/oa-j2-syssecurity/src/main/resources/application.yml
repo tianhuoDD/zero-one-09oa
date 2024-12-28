@@ -1,0 +1,15 @@
+server:
+  port: 10701
+#  servlet:
+#    context-path: /sys/security
+spring:
+  application:
+    name: SYS_SECURITY
+#  data:
+#    mongodb:
+#      uri: mongodb://localhost:27017/LoginConfig
+#  datasource:
+#    url: jdbc:mysql://localhost:3306
+#    username: root
+#    password: root
+#    driver-class-name: com.mysql.cj.jdbc.Driver

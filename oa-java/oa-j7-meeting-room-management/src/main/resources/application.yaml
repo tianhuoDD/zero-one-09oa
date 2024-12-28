@@ -1,0 +1,11 @@
+server:
+  port: ${sp.oa-j7-meeting-room}
+  address: localhost
+spring:
+  application:
+    name: ${sn.oa-j7-meeting-room}
+knife4j:
+  enableAggregation: true
+  nacos:
+    enable: true
+    serviceUrl: http://${nacos.addr}/${nacos.contextPath}/

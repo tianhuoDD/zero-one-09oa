@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.systemhome.mapper.message.PromulgationMessageInfoMapper">
+
+    <select id="selectPMI"
+            resultType="com.zeroone.star.project.dto.j1.message.getting.PromulgationMessageInfoDTO">
+        SELECT  cd.xtitle AS xtitle, DATE(cd.xcreateTime) AS xcreateTime
+        FROM zo_oa.org_person p
+        LEFT JOIN zo_oa.msg_instant mi ON p.xdistinguishedName = mi.xperson
+        LEFT JOIN zo_oa.cms_document cd ON SUBSTRING(mi.xbody, 8, 36) LIKE cd.xid
+        WHERE p.xid = #{personId} AND mi.xtype LIKE 'cms_publish'
+        ORDER BY xcreateTime DESC
+    </select>
+</mapper>
+
+
+
+
+
+
+

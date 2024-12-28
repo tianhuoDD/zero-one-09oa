@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.login.mapper.OrgPersonMapper">
+
+
+    <select id="getPersonByName" resultType="com.zeroone.star.login.entity.OrgPerson">
+        select *
+        from zo_oa.org_person p
+        where p.xname = #{xname}
+    </select>
+
+    <update id="updateByXMobile">
+        UPDATE org_person
+        SET xpassword = #{xpassword}
+        WHERE xmobile = #{xmobile}
+    </update>
+
+
+</mapper>

@@ -1,0 +1,5 @@
+server:
+  port: ${sp.columnsetting}
+spring:
+  application:
+    name: ${sn.columnsetting}

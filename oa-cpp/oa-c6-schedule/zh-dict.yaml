@@ -1,0 +1,83 @@
+calender:
+ event:
+  delete_choice: 日程删除方式的选择(依次是1,2,3)
+  xvalarm_summary: 日程提醒
+  event_rows: 日程列表
+  event_total: 日志总条数
+  add_summary: 新增日程信息
+  put_summary: 修改日程信息
+  del_summary: 删除日程信息
+  xqueryEvents: 获取日程列表
+  xqueryEvent: 获取日程详情
+  xid: 日程id(新建不用管)
+  xcalendarId: 所属日历id
+  xqueryDate: 查询年月
+  xtitle: 日志标题
+  xstartTime: 开始时间
+  xendTime: 结束时间
+  xcomment: 日程内容
+  xcolor: 显示颜色
+  xalarmTime: 提醒具体时间
+  xisAllDayEvent: 是否全天
+  xlocationName: 事件地点
+  xrecurrenceRule: 重复规则
+  xvalarm_Summary: 提醒方式
+  xvalarmTime_config: 提醒时间(几分钟前)
+  xalarm: 是否提醒
+  xrepeat: 重复方式(每日:1,每周:2,每月:3,每年:4,无:NO)
+  xrepeatUnitDate: 重复结束时间
+  xidList: id列表(处理多个id)
+  repeatUntilAvailable: 重复是否永久
+  manegerList: 管理人名单(优先级降序)
+  updateMenuOption: 修改选项(当前:1，所有:2)新建不用管
+  xalarmAlready: 是否已提醒
+  xrepmId: 重复日程ID(新建不用管)
+ default: 
+  default_comment: 这是日志默认内容
+  default_title: 这是日志默认标题
+  default_location: 这是日志默认地
+  maneger: 管理人
+ get:
+  space: 获取公开日历(分页)(日历广场)
+  summary_info: 获取日历详情
+  summary_list: 获取日历列表
+ put:
+  summary: 修改日历信息
+ post:
+  follow: 关注日历
+  summary: 新增一条日历
+ delete:
+  follow: 取关日历
+  summary: 删除一条日历
+ field:
+  xid: 日历id
+  xcreateTIme: 创建时间
+  xorderColumn: 优先顺序
+  xname: 日历名称
+  xcolor: 颜色
+  xtype: 类型
+  xisPublic: 是否公开
+  xdescription: 备注
+  xtarget: 所属组织
+  xmanageablePersonList: 管理者
+  xview: 可见范围
+  xpublish: 可新建范围
+  xstatus: 是否启用
+  xfollowers: 日历关注者
+  xcreator: 创建者
+  xYes: 是
+  xNo: 否
+  xPresonCalender: 个人日历
+  xConductCalender: 组织日历
+  xcreatetime: 创建时间
+  xupdatetime: 更新时间
+  xisfollow: 是否关注
+  xdistinguishedName: 用户专有名字
+ user:
+  xid: 用户id
+  xdistinguishedName: 用户唯一序列号
+    
+
+test:
+  username:
+    naifulian: 奈芙莲@1067@P

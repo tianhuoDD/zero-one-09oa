@@ -1,0 +1,37 @@
+server:
+  port: ${sp.sample}
+spring:
+  application:
+    name: ${sn.sample}
+  cloud:
+    sentinel:
+      transport:
+        #控制台地址
+        dashboard: ${sentinel.dashboard}
+      eager: true
+      datasource:
+        #流控规则
+        ds1:
+          file:
+            file: "classpath: flowrule.json"
+            data-type: json
+            rule-type: flow
+        #降级规则
+        ds2:
+          file:
+            file: "classpath: degraderule.json"
+            data-type: json
+            rule-type: degrade
+
+#开启sentinel服务熔断
+feign:
+  sentinel:
+    enabled: true
+
+#负载均衡配置
+ribbon:
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 1
+  OkToRetryOnAllOperations: false
+  ConnectTimeout: 5000
+  ReadTimeout: 5000

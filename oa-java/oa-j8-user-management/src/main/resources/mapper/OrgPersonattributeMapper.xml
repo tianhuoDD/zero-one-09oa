@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zeroone.star.user.mapper.OrgPersonattributeMapper">
+
+
+    <resultMap id="map" type="com.zeroone.star.project.dto.j8.user.user_attributes.UserAttributesDTO">
+        <id property="xid" column="xid"/>
+        <result property="xName" column="xname"/>
+        <result property="xDescription" column="xdescription"/>
+    </resultMap>
+    <select id="queryById" resultType="com.zeroone.star.project.dto.j8.user.user_attributes.UserAttributesDTO1">
+        select xid,xname,xdescription from org_personattribute where xperson = #{personId}
+    </select>
+
+    <delete id="deleteByXIds" parameterType="java.util.List">
+        DELETE FROM org_personattribute WHERE xid IN
+        <foreach item="item" index="index" collection="xIdList" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+</mapper>
